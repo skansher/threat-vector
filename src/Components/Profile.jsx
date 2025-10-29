@@ -1,5 +1,6 @@
 
 import Header from "./Header.jsx";
+import Card from "../Components/ProfileCard.jsx";
 
 const Profile = () => {
     return (
@@ -7,6 +8,7 @@ const Profile = () => {
       <Header />
       <header className="App-header">
         Threat Profiles
+        <Card />
       </header>
     </div>
     );

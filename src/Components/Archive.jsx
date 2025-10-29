@@ -1,5 +1,6 @@
 
 import Header from "./Header.jsx";
+import Card from "../Components/ProfileCard.jsx";
 
 const Archive = () => {
     return (
@@ -7,6 +8,7 @@ const Archive = () => {
       <Header />
       <header className="App-header">
         Archive
+        <Card />
       </header>
     </div>
     );

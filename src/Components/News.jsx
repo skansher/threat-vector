@@ -1,5 +1,6 @@
 
 import Header from "./Header.jsx";
+import Card from "../Components/NewsCard.jsx";
 
 const News = () => {
     return (
@@ -8,6 +9,7 @@ const News = () => {
       <header className="App-header">
         News
       </header>
+      <Card />
     </div>
     );
 }
