@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import News from './Components/News';
-import Profile from './Components/Profile';
-import Archive from './Components/Archive';
+import News from './Components/News.jsx';
+import Profile from './Components/Profile.jsx';
+import Archive from './Components/Archive.jsx';
 
 function App() {
   return (
