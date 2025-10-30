@@ -3,21 +3,20 @@
     display: flex !important;
     gap: 20px; 
     justify-content: center; 
-    align-items: flex-end; 
-    margin-bottom: 40px; 
+    align-items: flex-end; margin-bottom: 40px; 
     padding: 25px; 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    background-color: #0E1517; 
     border-radius: 16px; 
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); 
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    font-family: monospace; 
 }
 
 /* Individual Filter */ 
 .filter { 
     display: flex; 
     flex-direction: column; 
-    gap: 8px; 
-    min-width: 200px; 
+    gap: 8px; min-width: 200px; 
 } 
 
 .filter label { 
@@ -48,24 +47,24 @@
 } 
     
 .filter select:hover { 
-    border-color: #667eea; 
+    border-color: #006C67; 
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2); 
 } 
 
 .filter select:focus { 
     outline: none; 
-    border-color: #667eea; 
+    border-color: #006C67; 
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2); 
-}
 
-/* Select options styling */ 
+}
+ /* Select options styling */ 
 .filter select option {
-    padding: 10px; 
-    background-color: #ffffff; 
-    color: #333; 
+     padding: 10px; 
+     background-color: #ffffff; 
+     color: #333; 
 }
 
-/* Card Container */
+/* card Container */
 .card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -81,13 +80,13 @@
 }
 
 /* Responsive Breakpoints */
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
   }

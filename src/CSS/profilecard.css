@@ -1,66 +1,73 @@
 /* Card */
 .threat-card {
-  background-color: #e4132f;
   color: #000;
   border-radius: 16px;
   width: 280px;
-  height: 600px;
+  min-height: 600px; /* Uniform base height */
   padding: 24px;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
-  font-family: monospace;
-  font-weight: bold;
+  justify-content: flex-start;
+  font-family: poppins, sans-serif;
+  font-weight: bolder;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  transition: max-height 0.6s ease-in-out, transform 0.3s ease, background-color 0.3s ease;
 }
 
+.threat-card.expanded {
+  max-height: 1000px; /* Enough for expanded content */
+}
+
+/* Hover effect */
 .threat-card:hover {
   transform: scale(1.05);
-  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+/* Alternating Colors */
 .threat-card.color-0 {
-  background-color: #e4132f;
+  background-color: #CC0000;
 }
-
 .threat-card.color-0:hover {
   background-color: #e77786;
-  transform: scale(1.05);
 }
 
 .threat-card.color-1 {
-  background-color: #bff8b5;
+  background-color: #33FFF5;
 }
-
 .threat-card.color-1:hover {
-  background-color: #cdf5c6;
-  transform: scale(1.05);
+  background-color: #85FFF9;
 }
 
 .threat-card.color-2 {
-  background-color: #ffb236;
+  background-color: #F9CE4E;
 }
-
 .threat-card.color-2:hover {
-  background-color: #fbd9a2;
-  transform: scale(1.05);
+  background-color: #FBE49D;
 }
 
-/* Icon */
-.actor-icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 8px;
-  filter: brightness(0);
-}
-
-/* Title */
+/* Title - Responsive and dynamic color */
 .card-title {
-  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.6rem);
   font-weight: bold;
-  margin-bottom: 6px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 12px;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Dynamic title colors */
+.threat-card.color-0 .card-title {
+  color: #3D0000; /* White for red background */
+}
+.threat-card.color-1 .card-title {
+  color: #004d4d; /* Dark teal for cyan background */
+}
+.threat-card.color-2 .card-title {
+  color: #7a4f00; /* Deep brown for yellow background */
 }
 
 /* Divider */
@@ -69,46 +76,43 @@
   margin: 8px 0;
 }
 
-/* Fields */
+/* Fields container */
 .card-fields {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  max-height: 200px;
-  font-size: 0.7rem;
-  margin-bottom: 120px; /* 👈 ensures attachments come right after */
+  gap: 8px;
+  font-size: clamp(0.65rem, 1vw, 0.8rem);
+  text-align: center;
 }
 
+/* Field labels and values */
 .field {
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  gap: 4px; /* Extra space between label and value */
 }
 
 .field label {
   font-weight: bold;
-  font-size: 0.7rem;
-  min-width: 100px;
-  flex-shrink: 0;
+  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  text-align: center;
+  display: block;
+  word-break: break-word;
 }
 
 .field span {
-  font-size: 0.7rem;
+  font-size: clamp(0.65rem, 1vw, 0.8rem);
+  text-align: center;
+  display: block;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Optional: Truncate very long text */
+.field span {
+  max-height: 3.6em; /* About 3 lines */
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  flex: 1;
-}
-
-.field span {
-  font-size: 0.7rem;
-  flex: 1;
-  white-space: normal;      
-  word-wrap: break-word;    
-  overflow-wrap: anywhere;  
-}
-
-.field span a:hover {
-  color: #333;
 }
 
 /* Attachments */
@@ -118,7 +122,7 @@
   font-weight: bold;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -126,7 +130,7 @@
 
 .arrow {
   display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease-in-out; /* Smooth rotation */
 }
 
 .arrow.open {
@@ -141,7 +145,8 @@
   margin-top: 8px;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;

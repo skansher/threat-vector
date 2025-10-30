@@ -1,12 +1,11 @@
 .header {
   width: 100%;
-  background-color: #e4132f; /* Same as card background */
+  background-color: #CC0000; /* Same as card background */
   padding: 15px 0;
   display: flex;
   justify-content: left; /* Center items horizontally */
   gap: 60px; /* Space between items */
-  font-family: monospace;
-  font-weight: bold;
+  font-family: impact;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
