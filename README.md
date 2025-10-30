@@ -4,7 +4,9 @@ Keybank 2025 Hackoween project with the 2025 Rotational Analyst group. The M.I.N
 
 ## Members
 Developers: Muskan Shergill & Ellie Fahey
+
 Research Team: Autumn Groen, Hannah Taupieka, Mary Kromer
+
 Storyteller: Jake Burdick
 
 ### `npm start`
