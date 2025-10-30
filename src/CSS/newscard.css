@@ -1,46 +1,70 @@
-/* Card */
 .news-card {
-  background-color: #e4132f;
-  color: #000;
+  position: relative;
+  background-color: #1F2E33; /* Dark background */
+  color: #fff;
   border-radius: 16px;
   width: 600px;
-  height: 250px;
   padding: 24px;
-  margin: 20px auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   font-family: monospace;
+  text-align: right; /* Right-align text */
   font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .news-card:hover {
+  background-color: #4E727E;
   transform: scale(1.05);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: #000;
 }
 
+/* Header with image and title */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Image + title on left */
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.news-image {
+  width: 40px;       /* Smaller size */
+  height: 40px;
+  border-radius: 50%; /* Circular */
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Details section */
+.news-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #4E727E;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: #ccc;
+}
+
+.news-summary,
+.news-content {
+  text-align: right;
+}
+
+/* Hover color variants */
 .news-card.color-0 {
-  background-color: #e4132f;
+  background-color: #1F2E33;
 }
 
 .news-card.color-0:hover {
-  background-color: #e77786;
-  transform: scale(1.05);
-}
-
-.news-card.color-1 {
-  background-color: #bff8b5;
-}
-
-.news-card.color-1:hover {
-  background-color: #cdf5c6;
-  transform: scale(1.05);
-}
-
-.news-card.color-2 {
-  background-color: #ffb236;
-}
-
-.news-card.color-2:hover {
-  background-color: #fbd9a2;
-  transform: scale(1.05);
+  background-color: #4E727E;
+  color: #000;
 }
