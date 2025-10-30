@@ -1,5 +1,3 @@
-
-import React, { useState } from "react";
 import "../CSS/newscard.css";
 
 const NewsCard = ({news, index}) => {

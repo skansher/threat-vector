@@ -16,6 +16,11 @@ const ProfileCard = ({profile, index}) => {
         setImages(prev => [...prev, ...imageUrls]);
     };
 
+    // Helper function to check if a field should be displayed
+    const hasValue = (value) => {
+        return value && value.trim() !== "" && value !== "N/A";
+    };
+
     return (
         <div className={`threat-card ${colorClass}`}>
             {/* Top Icon */}
@@ -29,54 +34,89 @@ const ProfileCard = ({profile, index}) => {
 
             {/* Key Info */}
             <div className="card-fields">
-                <div className="field">
-                    <label>Country Of Origin:</label>
-                    <span>{profile["Country of Origin"] || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>TTPs:</label>
-                    <span>{profile.TTPs || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Last dated attack:</label>
-                    <span>{profile["Last dated attack"] || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Industries:</label>
-                    <span>{profile.Industries || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Mitre Framework ID/GID:</label>
-                    <span>{profile["Mitre Framework ID/GID"] || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>CVE:</label>
-                    <span>{profile.CVE || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Campaign:</label>
-                    <span>{profile.Campaign || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Description:</label>
-                    <span>{profile.Description || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Motive:</label>
-                    <span>{profile.Motive || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Targeted countries:</label>
-                    <span>{profile["Targeted country"] || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>First seen:</label>
-                    <span>{profile["First seen"] || 'N/A'}</span>
-                </div>
-                <div className="field">
-                    <label>Resource:</label>
-                    <span>{profile["URL"] || 'N/A'}</span>  
-                </div>
+                {hasValue(profile["Country of Origin"]) && (
+                    <div className="field">
+                        <label>Country Of Origin:</label>
+                        <span>{profile["Country of Origin"]}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile.TTPs) && (
+                    <div className="field">
+                        <label>TTPs:</label>
+                        <span>{profile.TTPs}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile["Last dated attack"]) && (
+                    <div className="field">
+                        <label>Last dated attack:</label>
+                        <span>{profile["Last dated attack"]}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile.Industries) && (
+                    <div className="field">
+                        <label>Industries:</label>
+                        <span>{profile.Industries}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile["Mitre Framework ID/GID"]) && (
+                    <div className="field">
+                        <label>Mitre Framework ID/GID:</label>
+                        <span>{profile["Mitre Framework ID/GID"]}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile.CVE) && (
+                    <div className="field">
+                        <label>CVE:</label>
+                        <span>{profile.CVE}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile.Campaign) && (
+                    <div className="field">
+                        <label>Campaign:</label>
+                        <span>{profile.Campaign}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile.Description) && (
+                    <div className="field">
+                        <label>Description:</label>
+                        <span>{profile.Description}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile.Motive) && (
+                    <div className="field">
+                        <label>Motive:</label>
+                        <span>{profile.Motive}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile["Targeted country"]) && (
+                    <div className="field">
+                        <label>Targeted countries:</label>
+                        <span>{profile["Targeted country"]}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile["First seen"]) && (
+                    <div className="field">
+                        <label>First seen:</label>
+                        <span>{profile["First seen"]}</span>
+                    </div>
+                )}
+                
+                {hasValue(profile.URL) && (
+                    <div className="field">
+                        <label>Resource:</label>
+                        <span>{profile.URL}</span>
+                    </div>
+                )}
             </div>
 
             {/* Bottom Section */}
