@@ -1,5 +1,197 @@
-.card {
-    width: 75%;
-    height: 75%;
-    border: 2px solid white;
+/* Card */
+.threat-card {
+  background-color: #e4132f;
+  color: #000;
+  border-radius: 16px;
+  width: 280px;
+  height: 600px;
+  padding: 24px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.threat-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.threat-card.color-0 {
+  background-color: #e4132f;
+}
+
+.threat-card.color-0:hover {
+  background-color: #e77786;
+  transform: scale(1.05);
+}
+
+.threat-card.color-1 {
+  background-color: #bff8b5;
+}
+
+.threat-card.color-1:hover {
+  background-color: #cdf5c6;
+  transform: scale(1.05);
+}
+
+.threat-card.color-2 {
+  background-color: #ffb236;
+}
+
+.threat-card.color-2:hover {
+  background-color: #fbd9a2;
+  transform: scale(1.05);
+}
+
+/* Icon */
+.actor-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  filter: brightness(0);
+}
+
+/* Title */
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Divider */
+.divider {
+  border-top: 1px solid #000;
+  margin: 8px 0;
+}
+
+/* Fields */
+.card-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 200px;
+  font-size: 0.7rem;
+  margin-bottom: 120px; /* 👈 ensures attachments come right after */
+}
+
+.field {
+  display: flex;
+  gap: 6px;
+}
+
+.field label {
+  font-weight: bold;
+  font-size: 0.7rem;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.field span {
+  font-size: 0.7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.field span {
+  font-size: 0.7rem;
+  flex: 1;
+  white-space: normal;      
+  word-wrap: break-word;    
+  overflow-wrap: anywhere;  
+}
+
+.field span a:hover {
+  color: #333;
+}
+
+/* Attachments */
+.attachments {
+  margin-top: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Upload Box */
+.upload-box {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-box.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.upload-box textarea {
+  width: 90%;
+  max-width: 240px;
+  height: 80px;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.85rem;
+  resize: none;
+  margin-bottom: 8px;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: #333;
+}
+
+.image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.image-preview img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
 }

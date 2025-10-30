@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import News from './Components/News.jsx';
 import Profile from './Components/Profile.jsx';
-import Archive from './Components/Archive.jsx';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
         <Route path="/" element={<Navigate to="/news" />} />
         <Route path="/news" element={<News />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/archive" element={<Archive />} />
       </Routes>
     </Router>
   );

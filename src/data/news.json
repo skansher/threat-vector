@@ -1,0 +1,65 @@
+{
+  "article 1": [
+    {
+      "Article Name": "US company with access to biggest telecom firms uncovers breach by nation-state hackers",
+      "Published Date": "October 29, 2025 9:59 PM UTC",
+      "News Channel": "Reuters",
+      "Summary": "Ribbon Communications, a Texas-based company, discovered a nation-state hacking breach in its IT network in early September 2025, with initial access dating back to December 2024. The breach affected three smaller customers, but no material information was accessed. Ribbon has taken steps to harden its network to prevent future incidents.",
+      "URL": "https://www.reuters.com/business/media-telecom/us-company-with-access-biggest-telecom-firms-uncovers-breach-by-nation-state-2025-10-29/"
+    }
+  ],
+  "article 2": [
+    {
+      "Article Name": "Cybersecurity order warns of \"imminent risk\" to federal agencies following possible breach",
+      "Published Date": "Not specified",
+      "News Channel": "CBS News",
+      "Summary": "The Cybersecurity and Infrastructure Security Agency issued an emergency order directing federal agencies to patch critical vulnerabilities in F5 devices and software after a nation-state cyber actor gained unauthorized access to F5's source code. The theft is significant as it potentially facilitates rapid exploitation of vulnerabilities, including undisclosed ones that F5 was actively working to patch.",
+      "URL": "https://www.cbsnews.com/news/f5-source-code-cybersecurity-infrastructure-security-agency-emergency-order/"
+    }
+  ],
+  "article 3": [
+    {
+      "Article Name": "Google: Over 57 Nation-State Threat Groups Using AI for Cyber Operations",
+      "Published Date": "Jan 30, 2025",
+      "News Channel": "The Hacker News",
+      "Summary": "Google reported that over 57 distinct threat actors with ties to China, Iran, North Korea, and Russia have used AI technology to further their malicious cyber and information operations. Threat actors are using AI for research, troubleshooting code, and creating content, but not yet developing novel capabilities. Google is actively deploying defenses to counter prompt injection attacks and emphasizes the need for public-private collaboration to raise cyber defenses.",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "article 4": [
+    {
+      "Article Name": "Russia, China increasingly using AI to escalate cyberattacks on US, Microsoft finds",
+      "Published Date": "No specific date available in the given context",
+      "News Channel": "ABC News",
+      "Summary": "Microsoft found that Russia and China are increasingly using AI to escalate cyberattacks on the US. North Korea has used AI personas to create American identities for remote tech jobs, allowing them to steal secrets or install malware. The article highlights the growing threat of nation-state actors using AI in cyber operations.",
+      "URL": "https://abcnews.go.com/Technology/wireStory/microsoft-russia-china-increasingly-ai-escalate-cyberattacks-us-126581796"
+    }
+  ],
+  "article 5": [
+    {
+      "Article Name": "APT36 Targets Indian Government with Golang-Based DeskRAT Malware Campaign",
+      "Published Date": "Oct 24, 2025",
+      "News Channel": "The Hacker News",
+      "Summary": "APT36, a Pakistan-nexus threat actor, targeted Indian government entities with spear-phishing attacks delivering Golang-based DeskRAT malware. The campaign involved ZIP file attachments or links to archives on cloud services like Google Drive, executing a malicious Desktop file that displayed a decoy PDF while running the main payload.",
+      "URL": "https://thehackernews.com/2025/10/apt36-targets-indian-government-with.html"
+    }
+  ],
+  "article 6": [
+    {
+      "Article Name": "Microsoft: SharePoint vulnerability targeted by Chinese hackers",
+      "Published Date": "Not specified",
+      "News Channel": "NBC News",
+      "Summary": "A critical flaw in Microsoft's SharePoint platform has been targeted by hackers, including those working for the Chinese government. Multiple government agencies worldwide have been hacked, with the identities of the victims still not public. Charles Carmakal, the chief technology officer at Mandiant, Google's cloud security service, stated that the number of hacked organizations is increasing.",
+      "URL": "https://www.nbcnews.com/tech/security/microsoft-sharepoint-vulnerability-targeted-chinese-hackers-rcna220270"
+    }
+  ],
+  "article 7": [
+    {
+      "Article Name": "Outage at Amazon Web Services disrupts websites across the internet",
+      "Published Date": "October 20, 2025",
+      "News Channel": "NPR",
+      "Summary": "Amazon Web Services experienced an outage that disrupted major websites across the internet. The outage started around 3 a.m. ET on Monday, with increased error rates and latencies reported in its Northern Virginia facility.",
+      "URL": "https://www.npr.org/2025/10/20/nx-s1-5580312/aws-outage"
+    }
+  ]
+}

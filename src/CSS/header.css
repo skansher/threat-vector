@@ -1,0 +1,34 @@
+.header {
+  width: 100%;
+  background-color: #e4132f; /* Same as card background */
+  padding: 15px 0;
+  display: flex;
+  justify-content: left; /* Center items horizontally */
+  gap: 60px; /* Space between items */
+  font-family: monospace;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-element {
+  background: none; /* Remove box background */
+  color: #000; /* Black text for contrast */
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
+
+.header-element:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
+  color: #fff; /* White text on hover */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}

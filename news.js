@@ -7,47 +7,31 @@ const client = new Writer({
   apiKey: process.env.WRITER_API_KEY,
 });
 
-async function generateAPTProfile(url) {
+async function generateNewsAlerts(url) {
   const prompt = `
 Analyze the APT threat intelligence information from this URL: ${url}
-
-Additionally, search the following sources for complementary information:
-- MITRE ATT&CK website (attack.mitre.org) for group IDs, TTPs, and techniques
-- CVE databases (cve.mitre.org, nvd.nist.gov) for associated vulnerabilities
 
 Create a JSON array with objects that have EXACTLY these fields. Return ONLY valid JSON, no markdown, no explanations:
 
 [
   {
-    "alias": "string",
-    "Country of Origin": "string",
-    "TTPs": "comma-separated MITRE ATT&CK IDs (e.g., T1071.001, T1087, T1059.003)",
-    "Last dated attack": "MM/DD/YYYY format",
-    "Industries": "comma-separated list of target industries",
-    "Mitre Framework ID/GID": "MITRE group ID (e.g., G1045)",
-    "CVE": "comma-separated list of CVEs exploited",
-    "Campaign": "brief campaign description",
-    "Description": "detailed description of the threat actor and their operations",
-    "Motive": "comma-separated list of motives",
-    "Targeted country": "comma-separated list of countries",
-    "First seen": "year first observed",
+    "Article Name": "string",
+    "Published Date": "string",
+    "News Channel": "string",
+    "Summary": "string",
     "URL": "source URL"
   }
 ]
 
 IMPORTANT:
-- Cross-reference the APT group names with MITRE ATT&CK to find their official Group ID (G####)
-- Search for associated CVEs that the group has exploited
-- Include all TTPs from MITRE ATT&CK framework
-- If the URL contains information about MULTIPLE APT groups, include multiple objects in the array
-- If information for a field is not available, use an empty string ""
+- Summary should be the key points of the article in concise form. It would be helpful to include any relevant statistics, findings, or notable quotes from the article.
 - The URL field should always be: ${url}
 
 Return ONLY the JSON array, nothing else.`;
 
   try {
     const response = await client.applications.generateContent(
-      "643819ed-6fd4-44be-af44-2417d4d94096",
+      "9564a100-dabd-4f8e-b3bc-94ac2c696ca4",
       {
         inputs: [{ id: "query", value: [prompt] }],
         stream: false,
@@ -70,7 +54,7 @@ Return ONLY the JSON array, nothing else.`;
     }
 
     // Try to extract JSON from the response
-    let profileData;
+    let articleData;
     try {
       // Remove markdown code blocks if present
       const cleanedSummary = summary
@@ -78,48 +62,32 @@ Return ONLY the JSON array, nothing else.`;
         .replace(/```\n?/g, "")
         .trim();
       
-      profileData = JSON.parse(cleanedSummary);
+      articleData = JSON.parse(cleanedSummary);
       
       // Ensure it's an array
-      if (!Array.isArray(profileData)) {
-        profileData = [profileData];
+      if (!Array.isArray(articleData)) {
+        articleData = [articleData];
       }
     } catch (parseError) {
       console.warn(`Could not parse JSON for ${url}, using fallback structure`);
-      profileData = [{
-        "alias": "Parse Error",
-        "Country of Origin": "",
-        "TTPs": "",
-        "Last dated attack": "",
-        "Industries": "",
-        "Mitre Framework ID/GID": "",
-        "CVE": "",
-        "Campaign": "",
-        "Description": summary,
-        "Motive": "",
-        "Targeted country": "",
-        "First seen": "",
-        "URL": url
+      articleData = [{
+        "Article Name": "Parse Error",
+        "Published Date": " ",
+        "News Channel": " ",
+        "Summary": " ",
+        "URL": " "
       }];
     }
 
-    return profileData;
+    return articleData;
   } catch (error) {
-    console.error(`Error generating profile for ${url}:`, error);
+    console.error(`Error generating article for ${url}:`, error);
     return [{
-      "alias": "Error",
-      "Country of Origin": "",
-      "TTPs": "",
-      "Last dated attack": "",
-      "Industries": "",
-      "Mitre Framework ID/GID": "",
-      "CVE": "",
-      "Campaign": "",
-      "Description": `Error: ${error.message}`,
-      "Motive": "",
-      "Targeted country": "",
-      "First seen": "",
-      "URL": url
+      "Article Name": "Error",
+      "Published Date": " ",
+      "News Channel": " ",
+      "Summary": " ",
+      "URL": " "
     }];
   }
 }
@@ -127,30 +95,30 @@ Return ONLY the JSON array, nothing else.`;
 async function run() {
   try {
     const urls = [
-      "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/",
-      "https://www.cisa.gov/news-events/cybersecurity-advisories",
-      "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/",
-      "https://www.security.land/advanced-persistent-threats-apt-in-2025-tactics-targets-and-mitigation/",
+      "https://www.reuters.com/business/media-telecom/us-company-with-access-biggest-telecom-firms-uncovers-breach-by-nation-state-2025-10-29/",
+      "https://www.cbsnews.com/news/f5-source-code-cybersecurity-infrastructure-security-agency-emergency-order/",
       "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html",
-      "https://cloud.google.com/security/resources/insights/apt-groups",
-      "https://apt.etda.or.th/cgi-bin/aptgroups.cgi"
+      "https://abcnews.go.com/Technology/wireStory/microsoft-russia-china-increasingly-ai-escalate-cyberattacks-us-126581796",
+      "https://thehackernews.com/2025/10/apt36-targets-indian-government-with.html",
+      "https://www.nbcnews.com/tech/security/microsoft-sharepoint-vulnerability-targeted-chinese-hackers-rcna220270",
+      "https://www.npr.org/2025/10/20/nx-s1-5580312/aws-outage"
     ];
 
-    const allProfiles = {};
-    let profileCounter = 1;
+    const allArticles = {};
+    let articleCounter = 1;
 
     for (const url of urls) {
       console.log(`\nProcessing: ${url}`);
-      const profiles = await generateAPTProfile(url);
+      const articles = await generateNewsAlerts(url);
       
-      // Add each profile from this URL
-      for (const profile of profiles) {
-        const profileKey = `Profile ${profileCounter}`;
-        allProfiles[profileKey] = [profile];
-        profileCounter++;
+      // Add each article from this URL
+      for (const article of articles) {
+        const articleKey = `article ${articleCounter}`;
+        allArticles[articleKey] = [article];
+        articleCounter++;
       }
       
-      console.log(`Generated ${profiles.length} profile(s) from this URL`);
+      console.log(`Generated ${articles.length} article(s) from this URL`);
 
       // Add delay between requests
       await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -163,11 +131,11 @@ async function run() {
     }
 
     fs.writeFileSync(
-      "src/data/apt_profiles.json",
-      JSON.stringify(allProfiles, null, 2)
+      "src/data/news.json",
+      JSON.stringify(allArticles, null, 2)
     );
-    console.log("\n✓ APT profiles saved to src/data/apt_profiles.json");
-    console.log(`Total profiles generated: ${profileCounter - 1}`);
+    console.log("\n✓ News articles saved to src/data/news.json");
+    console.log(`Total articles generated: ${articleCounter - 1}`);
   } catch (err) {
     console.error("Error during run:", err);
     process.exit(1);
