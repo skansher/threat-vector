@@ -1,14 +1,14 @@
 /* Card */
 .threat-card {
-  color: #000;
   border-radius: 16px;
+  border: 5px solid #4E727E;
   width: 280px;
   min-height: 600px; /* Uniform base height */
   padding: 24px;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-family: poppins, sans-serif;
   font-weight: bolder;
   overflow: hidden;
@@ -21,6 +21,13 @@
   max-height: 1000px; /* Enough for expanded content */
 }
 
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 16px;
+}
+
 /* Hover effect */
 .threat-card:hover {
   transform: scale(1.05);
@@ -29,13 +36,18 @@
 /* Alternating Colors */
 .threat-card.color-0 {
   background-color: #CC0000;
+  border-color: #3D0000;
+  color: #290000;
 }
+
 .threat-card.color-0:hover {
   background-color: #e77786;
 }
 
 .threat-card.color-1 {
-  background-color: #33FFF5;
+  background-color: #4e727e;
+  border-color: #1f2E33;
+  color: #101719;
 }
 .threat-card.color-1:hover {
   background-color: #85FFF9;
@@ -43,6 +55,8 @@
 
 .threat-card.color-2 {
   background-color: #F9CE4E;
+  border-color: #F9CE4E;
+  color: #624B04;
 }
 .threat-card.color-2:hover {
   background-color: #FBE49D;
@@ -117,7 +131,6 @@
 
 /* Attachments */
 .attachments {
-  margin-top: 20px;
   font-size: 0.7rem;
   font-weight: bold;
   display: flex;
@@ -125,7 +138,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
 .arrow {
@@ -141,12 +153,12 @@
 .upload-box {
   background-color: #f8f8f8;
   border-radius: 8px;
-  padding: 12px;
-  margin-top: 8px;
+  padding: 0px;
+  margin-top: 0px;
   overflow: hidden;
   opacity: 0;
   max-height: 0;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease-in-out, margin-top 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,6 +167,8 @@
 .upload-box.open {
   max-height: 400px;
   opacity: 1;
+  padding: 12px;
+  margin-top: 16px;
 }
 
 .upload-box textarea {

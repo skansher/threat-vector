@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../CSS/profilecard.css";
 import '../CSS/profile.css';
-//import actorIcon from "../assets/actor-icon.png"; // Ensure correct path
 
 const ProfileCard = ({profile, index}) => {
     // Determine color class based on index
@@ -23,10 +22,9 @@ const ProfileCard = ({profile, index}) => {
 
     return (
         <div className={`threat-card ${colorClass}`}>
-            {/* Top Icon */}
-            {/* <img src={actorIcon} alt="Threat Actor Icon" className="actor-icon" /> */}
 
             {/* Title */}
+            <div className="card-content">
             <h2 className="card-title">{profile.alias || 'UNKNOWN THREAT ACTOR'}</h2>
 
             {/* Divider */}
@@ -118,8 +116,10 @@ const ProfileCard = ({profile, index}) => {
                     </div>
                 )}
             </div>
+            </div>
 
             {/* Bottom Section */}
+            <div className="bottom-section">
             <div className="attachments" onClick={() => setIsOpen(!isOpen)}>
                 <span>Documents/Attachments Area</span>
                 <span className={`arrow ${isOpen ? "open" : ""}`}>▼</span>
@@ -143,6 +143,7 @@ const ProfileCard = ({profile, index}) => {
                     ))}
                 </div>
             </div>
+        </div>
         </div>
     );
 };
