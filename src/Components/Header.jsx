@@ -14,6 +14,9 @@ const Header = () => {
             <div className="header-element">
                 <Link to="/profile" className="link">Threat Profiles</Link>
             </div>
+            <div className="header-element">
+                <Link to="/infiltrators" className="link">IT Infiltrators</Link>
+            </div>
         </div>
     );
 }
