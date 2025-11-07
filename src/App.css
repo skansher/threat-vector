@@ -16,3 +16,13 @@
   font-weight: 500;
   color: #A6C0C9;
 }
+
+.page-container h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: impact;
+  font-weight: 500;
+  color: #A6C0C9;
+}

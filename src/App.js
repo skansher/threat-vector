@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import News from './Components/News.jsx';
 import Profile from './Components/Profile.jsx';
 import Infiltrators from './Components/Infiltrators.jsx';
+import CreateProfile from './Components/CreateProfile.jsx';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/infiltrators" element={<Infiltrators/>} />
+        <Route path="/createProfile" element={<CreateProfile/>} />
       </Routes>
     </Router>
   );
