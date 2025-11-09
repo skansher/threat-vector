@@ -5,39 +5,29 @@ Keybank 2025 Hackoween project with the 2025 Rotational Analyst group. The M.I.N
 ## Members
 Developers: Muskan Shergill & Ellie Fahey
 
-Research Team: Autumn Groen, Hannah Taupieka, Mary Kromer
+Research/Security Team: Autumn Groen, Hannah Taupieka, Mary Kromer
 
 Storyteller: Jake Burdick
 
-### `npm start`
+### Developer Steps
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Install Necessary Dependencies 
+##### `npm install`
+Installs necessary packages and dependencies for Node.js development.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##### `npm install express cors`
+Installs Express.js and CORS middleware.
 
-### `npm test`
+## Run manual scripts (if no data exists)
+#### `node threat_profile.js`
+Calls Web Scraper AI Agent in Writer to scrape knowledge network for APT information and generate profiles.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `node news.js`
+Calls Web Scraper AI Agent in Writer to scrape knowledge network for recent news reports on cyber attacks.
 
-### `npm run build`
+## Run Developer Environment
+#### `npm run server`
+Starts the API Server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### `npm start`
+Starts the React App.
