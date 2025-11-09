@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import infiltratorData from '../data/infiltrators.json';
+import infiltratorData from '../data/infiltrator_profiles.json';
 import Header from "./Header.jsx";
 import Card from "./ITCard.jsx";
 import '../CSS/profile.css';

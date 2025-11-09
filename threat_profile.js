@@ -136,8 +136,38 @@ async function run() {
       "https://apt.etda.or.th/cgi-bin/aptgroups.cgi"
     ];
 
-    const allProfiles = {};
+    // Ensure the directory exists
+    const dir = "src/data";
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+
+    const filePath = "src/data/apt_profiles.json";
+    
+    // Load existing profiles or start with empty object
+    let allProfiles = {};
     let profileCounter = 1;
+    
+    if (fs.existsSync(filePath)) {
+      try {
+        const existingData = fs.readFileSync(filePath, "utf8");
+        allProfiles = JSON.parse(existingData);
+        
+        // Find the highest profile number to continue from
+        const existingKeys = Object.keys(allProfiles);
+        if (existingKeys.length > 0) {
+          const numbers = existingKeys.map(key => {
+            const match = key.match(/Profile (\d+)/);
+            return match ? parseInt(match[1]) : 0;
+          });
+          profileCounter = Math.max(...numbers) + 1;
+        }
+        
+        console.log(`Loading existing profiles. Starting from Profile ${profileCounter}`);
+      } catch (parseError) {
+        console.warn("Could not parse existing file, starting fresh");
+      }
+    }
 
     for (const url of urls) {
       console.log(`\nProcessing: ${url}`);
@@ -156,18 +186,13 @@ async function run() {
       await new Promise((resolve) => setTimeout(resolve, 2000));
     }
 
-    // Ensure the directory exists
-    const dir = "src/data";
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
+    // Save all profiles (existing + new)
     fs.writeFileSync(
-      "src/data/apt_profiles.json",
+      filePath,
       JSON.stringify(allProfiles, null, 2)
     );
     console.log("\n✓ APT profiles saved to src/data/apt_profiles.json");
-    console.log(`Total profiles generated: ${profileCounter - 1}`);
+    console.log(`Total profiles in file: ${Object.keys(allProfiles).length}`);
   } catch (err) {
     console.error("Error during run:", err);
     process.exit(1);

@@ -610,5 +610,22 @@
       "First seen": "",
       "URL": "https://apt.etda.or.th/cgi-bin/aptgroups.cgi"
     }
+  ],
+  "Profile 37": [
+    {
+      "alias": "Test",
+      "Country of Origin": "Test",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "Test",
+      "Description": "Test",
+      "Motive": "",
+      "Targeted country": "Test",
+      "First seen": "",
+      "URL": ""
+    }
   ]
 }
