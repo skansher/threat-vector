@@ -204,152 +204,158 @@ const CreateProfile = () => {
                 <div className="card-header apt-header">
                 Threat Profile Form
                 </div>
-                <div className="card-body">
-                <div className="form-group">
-                    <label className="form-label">
-                    Alias Name <span className="required">*</span>
-                    </label>
-                    <input
-                    type="text"
-                    name="alias"
-                    value={aptForm.alias}
-                    onChange={handleAptChange}
-                    placeholder="e.g., APT28, UAC-0063"
-                    className="form-input"
-                    />
-                </div>
+                {/* MODIFIED: Add style to card-body for flex layout */}
+                <div className="card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    
+                    {/* NEW WRAPPER: Contains all form groups and grows to fill vertical space */}
+                    <div style={{ flexGrow: 1 }}> 
+                        <div className="form-group">
+                            <label className="form-label">
+                            Alias Name <span className="required">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            name="alias"
+                            value={aptForm.alias}
+                            onChange={handleAptChange}
+                            placeholder="e.g., APT28, UAC-0063"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">
-                    Country of Origin <span className="required">*</span>
-                    </label>
-                    <input
-                    type="text"
-                    name="countryOfOrigin"
-                    value={aptForm.countryOfOrigin}
-                    onChange={handleAptChange}
-                    placeholder="e.g., Russia"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">
+                            Country of Origin <span className="required">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            name="countryOfOrigin"
+                            value={aptForm.countryOfOrigin}
+                            onChange={handleAptChange}
+                            placeholder="e.g., Russia"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">
-                    Targeted Country <span className="required">*</span>
-                    </label>
-                    <input
-                    type="text"
-                    name="targetedCountry"
-                    value={aptForm.targetedCountry}
-                    onChange={handleAptChange}
-                    placeholder="e.g., Kazakhstan"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">
+                            Targeted Country <span className="required">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            name="targetedCountry"
+                            value={aptForm.targetedCountry}
+                            onChange={handleAptChange}
+                            placeholder="e.g., Kazakhstan"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">
-                    Campaign <span className="required">*</span>
-                    </label>
-                    <input
-                    type="text"
-                    name="campaign"
-                    value={aptForm.campaign}
-                    onChange={handleAptChange}
-                    placeholder="Brief campaign description"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">
+                            Campaign <span className="required">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            name="campaign"
+                            value={aptForm.campaign}
+                            onChange={handleAptChange}
+                            placeholder="Brief campaign description"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">
-                    Description <span className="required">*</span>
-                    </label>
-                    <textarea
-                    name="description"
-                    value={aptForm.description}
-                    onChange={handleAptChange}
-                    placeholder="Detailed description of the threat"
-                    rows="3"
-                    className="form-textarea"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">
+                            Description <span className="required">*</span>
+                            </label>
+                            <textarea
+                            name="description"
+                            value={aptForm.description}
+                            onChange={handleAptChange}
+                            placeholder="Detailed description of the threat"
+                            rows="3"
+                            className="form-textarea"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">TTPs</label>
-                    <input
-                    type="text"
-                    name="ttps"
-                    value={aptForm.ttps}
-                    onChange={handleAptChange}
-                    placeholder="e.g., T1566.001"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">TTPs</label>
+                            <input
+                            type="text"
+                            name="ttps"
+                            value={aptForm.ttps}
+                            onChange={handleAptChange}
+                            placeholder="e.g., T1566.001"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Industries</label>
-                    <input
-                    type="text"
-                    name="industries"
-                    value={aptForm.industries}
-                    onChange={handleAptChange}
-                    placeholder="e.g., diplomatic, military"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Industries</label>
+                            <input
+                            type="text"
+                            name="industries"
+                            value={aptForm.industries}
+                            onChange={handleAptChange}
+                            placeholder="e.g., diplomatic, military"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">MITRE Framework ID/GID</label>
-                    <input
-                    type="text"
-                    name="mitreId"
-                    value={aptForm.mitreId}
-                    onChange={handleAptChange}
-                    placeholder="e.g., G0003"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">MITRE Framework ID/GID</label>
+                            <input
+                            type="text"
+                            name="mitreId"
+                            value={aptForm.mitreId}
+                            onChange={handleAptChange}
+                            placeholder="e.g., G0003"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">CVE</label>
-                    <input
-                    type="text"
-                    name="cve"
-                    value={aptForm.cve}
-                    onChange={handleAptChange}
-                    placeholder="e.g., CVE-2022-38028"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">CVE</label>
+                            <input
+                            type="text"
+                            name="cve"
+                            value={aptForm.cve}
+                            onChange={handleAptChange}
+                            placeholder="e.g., CVE-2022-38028"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Motive</label>
-                    <input
-                    type="text"
-                    name="motive"
-                    value={aptForm.motive}
-                    onChange={handleAptChange}
-                    placeholder="e.g., cyberespionage"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Motive</label>
+                            <input
+                            type="text"
+                            name="motive"
+                            value={aptForm.motive}
+                            onChange={handleAptChange}
+                            placeholder="e.g., cyberespionage"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Reference URL</label>
-                    <input
-                    type="url"
-                    name="url"
-                    value={aptForm.url}
-                    onChange={handleAptChange}
-                    placeholder="https://..."
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Reference URL</label>
+                            <input
+                            type="url"
+                            name="url"
+                            value={aptForm.url}
+                            onChange={handleAptChange}
+                            placeholder="https://..."
+                            className="form-input"
+                            />
+                        </div>
+                    </div> 
+                    {/* END OF NEW WRAPPER */}
 
-                <button onClick={handleAptSubmit} className="btn btn-submit">
-                    Submit Profile
-                </button>
+                    <button onClick={handleAptSubmit} className="btn btn-submit">
+                        Submit Profile
+                    </button>
                 </div>
             </div>
 
@@ -357,161 +363,167 @@ const CreateProfile = () => {
                 <div className="card-header infiltrator-header">
                 Infiltrator Form
                 </div>
-                <div className="card-body">
-                <div className="form-group">
-                    <label className="form-label">
-                    Common Names <span className="required">*</span>
-                    </label>
-                    <input
-                    type="text"
-                    name="commonNames"
-                    value={infiltratorForm.commonNames}
-                    onChange={handleInfiltratorChange}
-                    placeholder="e.g., John Smith, Ivan Petrov"
-                    className="form-input"
-                    />
-                </div>
+                {/* MODIFIED: Add style to card-body for flex layout */}
+                <div className="card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    
+                    {/* NEW WRAPPER: Contains all form groups and grows to fill vertical space */}
+                    <div style={{ flexGrow: 1 }}> 
+                        <div className="form-group">
+                            <label className="form-label">
+                            Common Names <span className="required">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            name="commonNames"
+                            value={infiltratorForm.commonNames}
+                            onChange={handleInfiltratorChange}
+                            placeholder="e.g., John Smith, Ivan Petrov"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">
-                    Country of Origin <span className="required">*</span>
-                    </label>
-                    <input
-                    type="text"
-                    name="countryOfOrigin"
-                    value={infiltratorForm.countryOfOrigin}
-                    onChange={handleInfiltratorChange}
-                    placeholder="e.g., Russia"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">
+                            Country of Origin <span className="required">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            name="countryOfOrigin"
+                            value={infiltratorForm.countryOfOrigin}
+                            onChange={handleInfiltratorChange}
+                            placeholder="e.g., Russia"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Phone Numbers</label>
-                    <input
-                    type="text"
-                    name="phoneNumbers"
-                    value={infiltratorForm.phoneNumbers}
-                    onChange={handleInfiltratorChange}
-                    placeholder="Comma-separated phone numbers"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Phone Numbers</label>
+                            <input
+                            type="text"
+                            name="phoneNumbers"
+                            value={infiltratorForm.phoneNumbers}
+                            onChange={handleInfiltratorChange}
+                            placeholder="Comma-separated phone numbers"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Email Addresses</label>
-                    <input
-                    type="text"
-                    name="emails"
-                    value={infiltratorForm.emails}
-                    onChange={handleInfiltratorChange}
-                    placeholder="Comma-separated emails"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Email Addresses</label>
+                            <input
+                            type="text"
+                            name="emails"
+                            value={infiltratorForm.emails}
+                            onChange={handleInfiltratorChange}
+                            placeholder="Comma-separated emails"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Targeted Country</label>
-                    <input
-                    type="text"
-                    name="targetedCountry"
-                    value={infiltratorForm.targetedCountry}
-                    onChange={handleInfiltratorChange}
-                    placeholder="e.g., United States"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Targeted Country</label>
+                            <input
+                            type="text"
+                            name="targetedCountry"
+                            value={infiltratorForm.targetedCountry}
+                            onChange={handleInfiltratorChange}
+                            placeholder="e.g., United States"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Affiliated Organization</label>
-                    <input
-                    type="text"
-                    name="affiliatedOrganization"
-                    value={infiltratorForm.affiliatedOrganization}
-                    onChange={handleInfiltratorChange}
-                    placeholder="e.g., APT28, Company XYZ"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Affiliated Organization</label>
+                            <input
+                            type="text"
+                            name="affiliatedOrganization"
+                            value={infiltratorForm.affiliatedOrganization}
+                            onChange={handleInfiltratorChange}
+                            placeholder="e.g., APT28, Company XYZ"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Known Aliases</label>
-                    <input
-                    type="text"
-                    name="knownAliases"
-                    value={infiltratorForm.knownAliases}
-                    onChange={handleInfiltratorChange}
-                    placeholder="Other names used"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Known Aliases</label>
+                            <input
+                            type="text"
+                            name="knownAliases"
+                            value={infiltratorForm.knownAliases}
+                            onChange={handleInfiltratorChange}
+                            placeholder="Other names used"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Social Media Handles</label>
-                    <input
-                    type="text"
-                    name="socialMediaHandles"
-                    value={infiltratorForm.socialMediaHandles}
-                    onChange={handleInfiltratorChange}
-                    placeholder="@username, LinkedIn profile, etc."
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Social Media Handles</label>
+                            <input
+                            type="text"
+                            name="socialMediaHandles"
+                            value={infiltratorForm.socialMediaHandles}
+                            onChange={handleInfiltratorChange}
+                            placeholder="@username, LinkedIn profile, etc."
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Last Known Location</label>
-                    <input
-                    type="text"
-                    name="lastKnownLocation"
-                    value={infiltratorForm.lastKnownLocation}
-                    onChange={handleInfiltratorChange}
-                    placeholder="City, Country"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Last Known Location</label>
+                            <input
+                            type="text"
+                            name="lastKnownLocation"
+                            value={infiltratorForm.lastKnownLocation}
+                            onChange={handleInfiltratorChange}
+                            placeholder="City, Country"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Operational History</label>
-                    <textarea
-                    name="operationalHistory"
-                    value={infiltratorForm.operationalHistory}
-                    onChange={handleInfiltratorChange}
-                    placeholder="Known activities and timeline"
-                    rows="3"
-                    className="form-textarea"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Operational History</label>
+                            <textarea
+                            name="operationalHistory"
+                            value={infiltratorForm.operationalHistory}
+                            onChange={handleInfiltratorChange}
+                            placeholder="Known activities and timeline"
+                            rows="3"
+                            className="form-textarea"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Skillset</label>
-                    <input
-                    type="text"
-                    name="skillset"
-                    value={infiltratorForm.skillset}
-                    onChange={handleInfiltratorChange}
-                    placeholder="e.g., Social engineering, malware development"
-                    className="form-input"
-                    />
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Skillset</label>
+                            <input
+                            type="text"
+                            name="skillset"
+                            value={infiltratorForm.skillset}
+                            onChange={handleInfiltratorChange}
+                            placeholder="e.g., Social engineering, malware development"
+                            className="form-input"
+                            />
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label">Risk Level</label>
-                    <select
-                    name="riskLevel"
-                    value={infiltratorForm.riskLevel}
-                    onChange={handleInfiltratorChange}
-                    className="form-select"
-                    >
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                    <option value="Critical">Critical</option>
-                    </select>
-                </div>
+                        <div className="form-group">
+                            <label className="form-label">Risk Level</label>
+                            <select
+                            name="riskLevel"
+                            value={infiltratorForm.riskLevel}
+                            onChange={handleInfiltratorChange}
+                            className="form-select"
+                            >
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                            </select>
+                        </div>
+                    </div> 
+                    {/* END OF NEW WRAPPER */}
 
-                <button onClick={handleInfiltratorSubmit} className="btn btn-submit">
-                    Submit Profile
-                </button>
+                    <button onClick={handleInfiltratorSubmit} className="btn btn-submit">
+                        Submit Profile
+                    </button>
                 </div>
             </div>
             </div>

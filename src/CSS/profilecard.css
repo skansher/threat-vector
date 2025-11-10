@@ -1,11 +1,11 @@
-/* Card */
+/* Card (Base Style for Collapsed View) */
 .threat-card {
   border-radius: 16px;
   border: 5px solid #4E727E;
-  width: 280px;
-  min-height: 600px; /* Uniform base height */
+  width: 220px; /* REDUCED WIDTH */
+  min-height: 450px; /* REDUCED HEIGHT */
   padding: 24px;
-  margin: 20px auto;
+  margin: 20px 10px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,12 +14,133 @@
   overflow: hidden;
   word-wrap: break-word;
   overflow-wrap: anywhere;
-  transition: max-height 0.6s ease-in-out, transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer; /* Indicates the card is clickable */
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.threat-card.expanded {
-  max-height: 1000px; /* Enough for expanded content */
+/* --- Expanded Card Styles (Full-Width Inline) --- */
+
+.threat-card-expanded {
+    /* This width ensures it fills the new expanded-layout parent */
+    width: 100%; 
+    display: block; 
+    margin: 20px 0; /* Changed margin to 0 for sides, let the parent handle width */
+    background-color: #fff;
+    border-radius: 16px;
+    border: 5px solid; /* Uses dynamic color set by JS */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    transition: all 0.5s ease-in-out; /* Smooth transition for expansion */
 }
+
+.expanded-header {
+    background-color: #f7f7f7;
+    padding: 15px 25px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    cursor: pointer; /* Indicates this is the collapse click area */
+    border-bottom: 1px solid #ddd;
+}
+
+.expanded-title {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: left;
+}
+
+/* This flex container separates the profile info (left) and sidebar (right) */
+.expanded-content {
+    display: flex;
+    min-height: 500px; 
+    padding: 25px;
+    background-color: #fcf0f0; /* Light background for the content area */
+}
+
+/* Left Panel: Profile Info */
+.expanded-info-panel {
+    flex: 3; /* Takes up larger portion (e.g., 65-75%) */
+    padding-right: 30px;
+    border-right: 1px solid #ddd;
+}
+
+.full-info-list {
+    text-align: left;
+    gap: 12px;
+}
+
+.full-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.full-field label {
+    font-size: 0.9rem;
+    min-width: 150px;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+.full-field span {
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: normal;
+    color: #555;
+    max-height: none; 
+    overflow: visible;
+}
+
+/* Right Panel: Attachments/Notes */
+.expanded-sidebar {
+    flex: 1; /* Takes up smaller portion (e.g., 25-35%) */
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.expanded-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #CC0000;
+}
+
+.note-area {
+    width: 100%;
+    min-height: 150px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.upload-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.save-note-btn {
+    background-color: #CC0000;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-note-btn:hover {
+    background-color: #990000;
+}
+
+/* --- Original Styles (Preserved) --- */
 
 .card-content {
     display: flex;
@@ -64,7 +185,7 @@
 
 /* Title - Responsive and dynamic color */
 .card-title {
-  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* INCREASED FONT SIZE */
   font-weight: bold;
   margin-bottom: 12px;
   text-align: center;
@@ -75,13 +196,13 @@
 
 /* Dynamic title colors */
 .threat-card.color-0 .card-title {
-  color: #3D0000; /* White for red background */
+  color: #3D0000; 
 }
 .threat-card.color-1 .card-title {
-  color: #004d4d; /* Dark teal for cyan background */
+  color: #004d4d; 
 }
 .threat-card.color-2 .card-title {
-  color: #7a4f00; /* Deep brown for yellow background */
+  color: #7a4f00; 
 }
 
 /* Divider */
@@ -99,23 +220,23 @@
   text-align: center;
 }
 
-/* Field labels and values */
+/* Field labels and values (Increased Font Sizes) */
 .field {
   display: flex;
   flex-direction: column;
-  gap: 4px; /* Extra space between label and value */
+  gap: 4px; 
 }
 
 .field label {
   font-weight: bold;
-  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* INCREASED FONT SIZE */
   text-align: center;
   display: block;
   word-break: break-word;
 }
 
 .field span {
-  font-size: clamp(0.65rem, 1vw, 0.8rem);
+  font-size: clamp(0.8rem, 1.3vw, 1rem); /* INCREASED FONT SIZE */
   text-align: center;
   display: block;
   word-break: break-word;
@@ -124,64 +245,12 @@
 
 /* Optional: Truncate very long text */
 .field span {
-  max-height: 3.6em; /* About 3 lines */
+  max-height: 4.5em; /* Adjusted max height for larger font */
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Attachments */
-.attachments {
-  font-size: 0.7rem;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.arrow {
-  display: inline-block;
-  transition: transform 0.4s ease-in-out; /* Smooth rotation */
-}
-
-.arrow.open {
-  transform: rotate(180deg);
-}
-
-/* Upload Box */
-.upload-box {
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  padding: 0px;
-  margin-top: 0px;
-  overflow: hidden;
-  opacity: 0;
-  max-height: 0;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease-in-out, margin-top 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.upload-box.open {
-  max-height: 400px;
-  opacity: 1;
-  padding: 12px;
-  margin-top: 16px;
-}
-
-.upload-box textarea {
-  width: 90%;
-  max-width: 240px;
-  height: 80px;
-  border-radius: 6px;
-  padding: 8px;
-  font-size: 0.85rem;
-  resize: none;
-  margin-bottom: 8px;
-}
-
+/* File/Image Upload (re-used styles) */
 .file-input {
   display: none;
 }
