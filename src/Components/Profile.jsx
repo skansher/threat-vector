@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // IMPORT useRef
 import aptProfilesData from '../data/apt_profiles.json';
 import Header from "./Header.jsx";
 import Card from "../Components/ProfileCard.jsx";
@@ -6,8 +6,14 @@ import '../CSS/profile.css';
 import '../CSS/profilecard.css';
 
 const Profile = () => {
+  // NEW: Ref to target the expanded card for scrolling
+  const expandedCardRef = useRef(null); 
+  
+  // NEW STATE: Tracks the ID of the currently expanded card (profileKey)
+  const [expandedCardId, setExpandedCardId] = useState(null); 
+  
   const [profiles, setProfiles] = useState([]);
-  const [filteredProfiles, setFilteredProfiles] = useState([]);
+  const [filteredProfiles, setFilteredProfiles, ] = useState([]);
   const [filters, setFilters] = useState({
     industry: "",
     countryTarget: "",
@@ -28,9 +34,17 @@ const Profile = () => {
     });
   };
 
+  // NEW FUNCTION: Toggles the expanded card
+  const toggleExpansion = (profileKey) => {
+    // If the clicked card is already expanded, collapse it (set to null).
+    // Otherwise, expand the clicked card (set to its key).
+    setExpandedCardId(profileKey === expandedCardId ? null : profileKey);
+  };
+
+
   useEffect(() => {
     const profilesArray = Object.entries(aptProfilesData).map(([key, value]) => ({
-      profileKey: key,
+      profileKey: key, // Use profileKey as the unique identifier
       ...value[0],
     }))
     .filter(profile => profile.alias !== "Parse Error"); 
@@ -97,6 +111,26 @@ const Profile = () => {
 
     setFilteredProfiles(sorted);
   }, [filters, profiles]);
+  
+  const isAnyCardExpanded = expandedCardId !== null;
+
+  // KEY CHANGE: Sort the profiles to put the expanded one first
+  const sortedProfilesForDisplay = [...filteredProfiles].sort((a, b) => {
+    if (a.profileKey === expandedCardId) return -1; // a comes first (expanded card)
+    if (b.profileKey === expandedCardId) return 1;  // b comes first
+    return 0; // maintain original order for collapsed cards
+  });
+  
+  // NEW: Effect to scroll to the expanded card whenever it opens
+  useEffect(() => {
+    if (expandedCardId && expandedCardRef.current) {
+        expandedCardRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start', // Scroll to align the top of the element with the top of the viewport
+        });
+    }
+  }, [expandedCardId]);
+
 
   return (
     <div>
@@ -174,10 +208,19 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className="card-container">
-          {filteredProfiles.length > 0 ? (
-            filteredProfiles.map((profile, index) => (
-              <Card key={index} profile={profile} index={index} />
+        {/* APPLYING THE EXPANDED LAYOUT CLASS */}
+        <div className={`card-container ${isAnyCardExpanded ? 'expanded-layout' : ''}`}>
+          {sortedProfilesForDisplay.length > 0 ? (
+            sortedProfilesForDisplay.map((profile, index) => (
+              <Card 
+                key={profile.profileKey} 
+                profile={profile} 
+                index={index} 
+                isExpanded={profile.profileKey === expandedCardId}
+                toggleExpansion={() => toggleExpansion(profile.profileKey)}
+                // CONDITIONAL REF: Attach the ref only to the expanded card
+                ref={profile.profileKey === expandedCardId ? expandedCardRef : null}
+              />
             ))
           ) : (
             <p>No profiles found</p>

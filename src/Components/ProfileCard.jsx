@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react"; // IMPORT forwardRef
 import "../CSS/profilecard.css";
 import '../CSS/profile.css';
 
-const ProfileCard = ({profile, index}) => {
+// Component now accepts props AND a ref, using forwardRef
+const ProfileCard = forwardRef(({ profile, index, isExpanded, toggleExpansion }, ref) => {
     // Determine color class based on index
     const colorClass = `color-${index % 3}`;
 
-    const [isOpen, setIsOpen] = useState(false);
+    // Local state for attachments/notes content
     const [images, setImages] = useState([]);
+    const [note, setNote] = useState('');
 
     const handleImageUpload = (event) => {
         const files = Array.from(event.target.files);
@@ -20,10 +22,94 @@ const ProfileCard = ({profile, index}) => {
         return value && value.trim() !== "" && value !== "N/A";
     };
 
-    return (
-        <div className={`threat-card ${colorClass}`}>
+    // KEY FUNCTION: Stops event from bubbling up to the parent card click handler
+    const stopClickPropagation = (e) => {
+        e.stopPropagation();
+    };
 
-            {/* Title */}
+
+    // --- RENDERING EXPANDED VIEW ---
+    if (isExpanded) {
+        return (
+            // Attach the forwarded ref here to the root expanded element
+            <div className={`threat-card-expanded ${colorClass}`} ref={ref}>
+                
+                {/* Header: Clickable area to Collapse the card */}
+                <div className="expanded-header" onClick={toggleExpansion}>
+                    <h2 className="expanded-title">
+                        {profile.alias || 'UNKNOWN THREAT ACTOR'} - Full Profile
+                    </h2>
+                </div>
+                
+                {/* Main Content Area (Info on Left, Attachments on Right) */}
+                <div className="expanded-content">
+
+                    {/* Left Side: Full Profile Info */}
+                    <div className="expanded-info-panel">
+                        <div className="card-fields full-info-list">
+                            {/* All fields displayed here */}
+                            {Object.keys(profile).map((key, i) => 
+                                hasValue(profile[key]) && key !== 'profileKey' && (
+                                    <div className="field full-field" key={i}>
+                                        <label>{key}:</label>
+                                        <span>{profile[key]}</span>
+                                    </div>
+                                )
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Right Side: Attachments/Notes/Uploads (Click event is blocked here) */}
+                    <div className="expanded-sidebar" onClick={stopClickPropagation}>
+                        <h3>Notes & Attachments</h3>
+                        
+                        {/* Notes Area */}
+                        <textarea 
+                            className="note-area"
+                            placeholder="Add notes, links, etc."
+                            value={note}
+                            onChange={(e) => setNote(e.target.value)}
+                            // Stop propagation on interactive elements
+                            onClick={stopClickPropagation} 
+                        ></textarea>
+
+                        {/* File/Image Upload */}
+                        <div className="upload-section">
+                            <input
+                                type="file"
+                                accept="image/*"
+                                multiple
+                                onChange={handleImageUpload}
+                                className="file-input"
+                                id="fileUploadExpanded"
+                                onClick={stopClickPropagation} // Prevents click from closing card
+                            />
+                            <label htmlFor="fileUploadExpanded" className="upload-btn">Upload Images</label>
+                            <button className="save-note-btn" onClick={stopClickPropagation}>Save Note</button>
+                        </div>
+
+                        {/* Image Preview */}
+                        <div className="image-preview">
+                            {images.map((src, index) => (
+                                <img key={index} src={src} alt={`upload-${index}`} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // --- RENDERING COLLAPSED VIEW ---
+    return (
+        // Attach the forwarded ref here
+        <div 
+            className={`threat-card ${colorClass}`} 
+            onClick={toggleExpansion} // Click anywhere on the small card toggles expansion
+            ref={ref} 
+        >
+
+            {/* Simplified Content for Small Card */}
             <div className="card-content">
             <h2 className="card-title">{profile.alias || 'UNKNOWN THREAT ACTOR'}</h2>
 
@@ -32,6 +118,7 @@ const ProfileCard = ({profile, index}) => {
 
             {/* Key Info */}
             <div className="card-fields">
+                {/* Only display a few key fields for the collapsed view */}
                 {hasValue(profile["Country of Origin"]) && (
                     <div className="field">
                         <label>Country Of Origin:</label>
@@ -46,106 +133,16 @@ const ProfileCard = ({profile, index}) => {
                     </div>
                 )}
                 
-                {hasValue(profile["Last dated attack"]) && (
-                    <div className="field">
-                        <label>Last dated attack:</label>
-                        <span>{profile["Last dated attack"]}</span>
-                    </div>
-                )}
-                
-                {hasValue(profile.Industries) && (
-                    <div className="field">
-                        <label>Industries:</label>
-                        <span>{profile.Industries}</span>
-                    </div>
-                )}
-                
-                {hasValue(profile["Mitre Framework ID/GID"]) && (
-                    <div className="field">
-                        <label>Mitre Framework ID/GID:</label>
-                        <span>{profile["Mitre Framework ID/GID"]}</span>
-                    </div>
-                )}
-                
-                {hasValue(profile.CVE) && (
-                    <div className="field">
-                        <label>CVE:</label>
-                        <span>{profile.CVE}</span>
-                    </div>
-                )}
-                
                 {hasValue(profile.Campaign) && (
                     <div className="field">
                         <label>Campaign:</label>
                         <span>{profile.Campaign}</span>
                     </div>
                 )}
-                
-                {hasValue(profile.Description) && (
-                    <div className="field">
-                        <label>Description:</label>
-                        <span>{profile.Description}</span>
-                    </div>
-                )}
-                
-                {hasValue(profile.Motive) && (
-                    <div className="field">
-                        <label>Motive:</label>
-                        <span>{profile.Motive}</span>
-                    </div>
-                )}
-                
-                {hasValue(profile["Targeted country"]) && (
-                    <div className="field">
-                        <label>Targeted countries:</label>
-                        <span>{profile["Targeted country"]}</span>
-                    </div>
-                )}
-                
-                {hasValue(profile["First seen"]) && (
-                    <div className="field">
-                        <label>First seen:</label>
-                        <span>{profile["First seen"]}</span>
-                    </div>
-                )}
-                
-                {hasValue(profile.URL) && (
-                    <div className="field">
-                        <label>Resource:</label>
-                        <span>{profile.URL}</span>
-                    </div>
-                )}
             </div>
             </div>
-
-            {/* Bottom Section */}
-            <div className="bottom-section">
-            <div className="attachments" onClick={() => setIsOpen(!isOpen)}>
-                <span>Documents/Attachments Area</span>
-                <span className={`arrow ${isOpen ? "open" : ""}`}>▼</span>
-            </div>
-
-            {/* Expandable Upload Box */}
-            <div className={`upload-box ${isOpen ? "open" : ""}`}>
-                <textarea placeholder="Add notes, links, etc."></textarea>
-                <input
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={handleImageUpload}
-                    className="file-input"
-                    id="fileUpload"
-                />
-                <label htmlFor="fileUpload" className="upload-btn">Upload Images</label>
-                <div className="image-preview">
-                    {images.map((src, index) => (
-                        <img key={index} src={src} alt={`upload-${index}`} />
-                    ))}
-                </div>
-            </div>
-        </div>
         </div>
     );
-};
+}); // Export the forwardRef wrapped component
 
 export default ProfileCard;
