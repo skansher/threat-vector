@@ -14,6 +14,9 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from React build
+app.use(express.static(path.join(__dirname, "build")));
+
 // Helper function to read JSON file
 async function readJSONFile(filePath) {
   try {
@@ -219,6 +222,15 @@ app.delete("/api/infiltrator-profiles/:profileKey", async (req, res) => {
     console.error("Error deleting Infiltrator profile:", error);
     res.status(500).json({ error: "Failed to delete Infiltrator profile" });
   }
+});
+
+// ============================================
+// SERVE REACT APP
+// ============================================
+
+// All other routes serve the React app (must be last)
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // ============================================
