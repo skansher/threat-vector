@@ -1,5 +1,6 @@
 .page-container {
-  background-color: #0E1517;
+  /* background-color: #0E1517; */
+  background-color: pink;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

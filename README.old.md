@@ -1,2 +1,0 @@
-# threat-vector
-hackathon
