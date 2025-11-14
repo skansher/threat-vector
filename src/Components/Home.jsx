@@ -56,7 +56,7 @@ const Home = () => {
         {/* Welcome Banner */}
       <div className="welcome-banner mb-4">
         <h1>Hello Minion</h1>
-        <p className="welcome-subtitle">Threat Intelligence Command Center</p>
+        <p className="welcome-subtitle">Malware Intelligence Network for Investigation & Operational Navigation</p>
       </div>
       
       {/* Navigation Cards */}
