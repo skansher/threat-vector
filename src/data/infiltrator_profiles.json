@@ -2,10 +2,10 @@
   "Infiltrator 1": [
     {
       "Common Names": "Test",
-      "Phone Numbers": "",
-      "Emails": "",
-      "Country of Origin": "Test",
-      "Targeted Country": "",
+      "Phone Numbers": "555-555-555",
+      "Emails": "test@test.com",
+      "Country of Origin": "US",
+      "Targeted Country": "UK",
       "Affiliated Organization": "",
       "Known Aliases": "",
       "Social Media Handles": "",

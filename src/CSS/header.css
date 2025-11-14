@@ -1,26 +1,40 @@
 .header {
   width: 100%;
-  background-color: #CC0000; /* Same as card background */
-  padding: 15px 0;
+  height: 10vh;
+  background-color: #3D0000;
   display: flex;
-  justify-content: left; /* Center items horizontally */
-  gap: 60px; /* Space between items */
-  font-family: impact;
+  justify-content: left; 
+  gap: 40px;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 500;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header-element {
-  background: none; /* Remove box background */
-  color: #3D0000; /* Black text for contrast */
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: none;
+  background: none; 
+  color: white; 
   font-size: 1.2rem;
   cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .header-element:hover {
   transform: scale(1.05);
   opacity: 0.85;
-  color: #fff; /* White text on hover */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px; /* Adjust size as needed */
+    width: auto;
+    object-fit: contain;
 }
 
 a {
