@@ -2,38 +2,45 @@ import "../CSS/newscard.css";
 import spyImage from "../assets/Spy.webp"; 
 
 const NewsCard = ({ news, index }) => {
-  const colorClass = `color-${index % 3}`;
+  const hasUrl = news["URL"] && news["URL"] !== "N/A";
+
+  const handleCardClick = () => {
+    if (hasUrl) {
+      window.open(news["URL"], "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
-    <div className={`news-card ${colorClass}`}>
-
-      {/* Header with image and title */}
-      <div className="card-header">
-        <img src={spyImage} alt="Spy" className="news-image" />
-        <h2 className="card-title">{news["Article Name"] || "N/A"}</h2>
+    <div 
+      className={`card news-card ${hasUrl ? 'clickable' : 'inactive'}`}
+      onClick={handleCardClick}
+      role={hasUrl ? "button" : undefined}
+      tabIndex={hasUrl ? 0 : undefined}
+    >
+      <div className="card-header p-3">
+        <div className="col-sm-2 d-flex justify-content-center align-items-center">
+          <img src={spyImage} alt="Spy" className="news-image" />
+        </div>
+        <div className="col-sm-10 d-flex justify-content-start align-items-center">
+          <h2 className="card-title m-0">{news["Article Name"] || "N/A"}</h2>
+        </div>
       </div>
 
-      {/* News Details */}
-      <div className="news-details">
-        <label className="detail-label">Channel:</label>
-        <span>{news["News Channel"] || "N/A"}</span>
-      </div>
+      <div className="card-body p-3">
+        <div className="news-details">
+          <label className="detail-label">Channel:</label>
+          <span>{news["News Channel"] || "N/A"}</span>
+        </div>
 
-      <div className="news-details">
-        <label className="detail-label">Published:</label>
-        <span>{news["Published Date"] || "N/A"}</span>
-      </div>
+        <div className="news-details">
+          <label className="detail-label">Published:</label>
+          <span>{news["Published Date"] || "N/A"}</span>
+        </div>
 
-      <div className="news-details">
-        <label className="detail-label">Description:</label>
-        <span>{news["Summary"] || "N/A"}</span>
-      </div>
-
-      <div className="news-details">
-        <label className="detail-label">URL:</label>
-        <a href={news["URL"]} target="_blank" rel="noopener noreferrer">
-          {news["URL"] || "N/A"}
-        </a>
+        <div className="news-details">
+          <label className="detail-label">Description:</label>
+          <span className="description-text">{news["Summary"] || "N/A"}</span>
+        </div>
       </div>
     </div>
   );
