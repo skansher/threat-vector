@@ -180,7 +180,7 @@ const CreateProfile = () => {
   return (
     <div className="page-container">
       <Header />
-          <div className="form-banner mt-5 mb-4, ms-4 me-4">
+          <div className="alt-banner mt-5 mb-4, ms-4 me-4">
             <h1>Can't find an APT or IT Infiltrator?</h1>
             <p className="welcome-subtitle">Follow the form directions below to add your APT or Infiltrator to your dashboard.</p>
           </div>
