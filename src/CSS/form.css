@@ -1,3 +1,11 @@
+.form-banner {
+  background: linear-gradient(135deg, #1d0000 0%, #241601 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
 /* APT Profile Styling - Red Theme */
 .apt-header {
   background-color: #3D0000 !important;
@@ -50,6 +58,7 @@
 .card {
   border-radius: 8px;
   overflow: hidden;
+  border: none !important;
 }
 
 .card-header h5 {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "./Header.jsx";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../CSS/form.css";
 
 const CreateProfile = () => {
@@ -181,7 +180,7 @@ const CreateProfile = () => {
   return (
     <div className="page-container">
       <Header />
-          <div className="alt-banner mb-4">
+          <div className="form-banner mt-5 mb-4, ms-4 me-4">
             <h1>Can't find an APT or IT Infiltrator?</h1>
             <p className="welcome-subtitle">Follow the form directions below to add your APT or Infiltrator to your dashboard.</p>
           </div>

@@ -1,4 +1,10 @@
-/* Remove the old grid styles, keep only what's needed */
+.news-banner {
+  background: linear-gradient(135deg, #11191b 0%, #054357 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
 .news-container .news-card,
 .col-12 .news-card {
     width: 90%;
