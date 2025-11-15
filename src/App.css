@@ -5,6 +5,15 @@
   margin: 0;
 }
 
+.alt-banner {
+  background: linear-gradient(135deg, #11191b 0%, #054357 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem;
+  text-align: center;
+}
+
 h1 {
   font-size: 3.6rem !important;
   font-weight: bold;

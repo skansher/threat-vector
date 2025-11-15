@@ -19,7 +19,7 @@ const News = () => {
     return (
         <div class="page-container">
             <Header />
-                <div className="news-banner mb-4">
+                <div className="alt-banner mb-4">
                   <h1>Recent Cyber Attacks</h1>
                   <p className="welcome-subtitle">Stay up to date on active threats in the national and global environment</p>
                 </div>
