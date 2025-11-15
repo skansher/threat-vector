@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../CSS/form.css";
 import Header from "./Header.jsx";
+import "../CSS/form.css";
 
 const CreateProfile = () => {
   const [aptForm, setAptForm] = useState({
@@ -45,7 +45,6 @@ const CreateProfile = () => {
   };
 
   const handleAptSubmit = async () => {
-    // Validate required fields
     if (!aptForm.alias || !aptForm.countryOfOrigin || !aptForm.targetedCountry || 
         !aptForm.campaign || !aptForm.description) {
       setMessage({ text: "Please fill in all required fields", type: "error" });
@@ -69,7 +68,6 @@ const CreateProfile = () => {
     };
 
     try {
-      // API call to your backend
       const response = await fetch('/api/apt-profiles', {
         method: 'POST',
         headers: {
@@ -90,7 +88,6 @@ const CreateProfile = () => {
         type: "success" 
       });
       
-      // Reset form
       setAptForm({
         alias: "",
         countryOfOrigin: "",
@@ -116,7 +113,6 @@ const CreateProfile = () => {
   };
 
   const handleInfiltratorSubmit = async () => {
-    // Validate required fields
     if (!infiltratorForm.commonNames || !infiltratorForm.countryOfOrigin) {
       setMessage({ text: "Please fill in all required fields", type: "error" });
       return;
@@ -138,7 +134,6 @@ const CreateProfile = () => {
     };
 
     try {
-      // API call to your backend
       const response = await fetch('/api/infiltrator-profiles', {
         method: 'POST',
         headers: {
@@ -159,7 +154,6 @@ const CreateProfile = () => {
         type: "success" 
       });
       
-      // Reset form
       setInfiltratorForm({
         commonNames: "",
         phoneNumbers: "",
@@ -184,351 +178,346 @@ const CreateProfile = () => {
   };
 
   return (
-    <div>
-        <Header />
-        <div className="page-container">
-        <div className="content-wrapper">
+    <div className="page-container">
+      <Header />
+          <div className="alt-banner mt-5 mb-4, ms-4 me-4">
             <h1>Can't find an APT or IT Infiltrator?</h1>
-            <h3>
-            Follow the form directions below to add your APT or Infiltrator to your dashboard.
-            </h3>
+            <p className="welcome-subtitle">Follow the form directions below to add your APT or Infiltrator to your dashboard.</p>
+          </div>
 
-            {message.text && (
-            <div className={`message ${message.type}`}>
-                {message.text}
+          {message.text && (
+            <div className={`alert ${message.type === 'success' ? 'alert-success' : 'alert-danger'} alert-dismissible fade show`} role="alert">
+              {message.text}
+              <button type="button" className="btn-close" onClick={() => setMessage({ text: "", type: "" })} aria-label="Close"></button>
             </div>
-            )}
+          )}
 
-            <div className="forms-grid">
-            <div className="form-card">
-                <div className="card-header apt-header">
-                Threat Profile Form
+          <div className="row g-4 mt-3 pb-5">
+            {/* APT Profile Form */}
+            <div className="col-lg-6">
+              <div className="card h-100 shadow-sm form-card-apt">
+                <div className="card-header text-white apt-header">
+                  <h5 className="mb-0">Threat Profile Form</h5>
                 </div>
-                {/* MODIFIED: Add style to card-body for flex layout */}
-                <div className="card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                    
-                    {/* NEW WRAPPER: Contains all form groups and grows to fill vertical space */}
-                    <div style={{ flexGrow: 1 }}> 
-                        <div className="form-group">
-                            <label className="form-label">
-                            Alias Name <span className="required">*</span>
-                            </label>
-                            <input
-                            type="text"
-                            name="alias"
-                            value={aptForm.alias}
-                            onChange={handleAptChange}
-                            placeholder="e.g., APT28, UAC-0063"
-                            className="form-input"
-                            />
-                        </div>
+                <div className="card-body d-flex flex-column">
+                  <div className="flex-grow-1">
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">
+                        Alias Name <span className="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="alias"
+                        value={aptForm.alias}
+                        onChange={handleAptChange}
+                        placeholder="e.g., APT28, UAC-0063"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">
-                            Country of Origin <span className="required">*</span>
-                            </label>
-                            <input
-                            type="text"
-                            name="countryOfOrigin"
-                            value={aptForm.countryOfOrigin}
-                            onChange={handleAptChange}
-                            placeholder="e.g., Russia"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">
+                        Country of Origin <span className="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="countryOfOrigin"
+                        value={aptForm.countryOfOrigin}
+                        onChange={handleAptChange}
+                        placeholder="e.g., Russia"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">
-                            Targeted Country <span className="required">*</span>
-                            </label>
-                            <input
-                            type="text"
-                            name="targetedCountry"
-                            value={aptForm.targetedCountry}
-                            onChange={handleAptChange}
-                            placeholder="e.g., Kazakhstan"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">
+                        Targeted Country <span className="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="targetedCountry"
+                        value={aptForm.targetedCountry}
+                        onChange={handleAptChange}
+                        placeholder="e.g., Kazakhstan"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">
-                            Campaign <span className="required">*</span>
-                            </label>
-                            <input
-                            type="text"
-                            name="campaign"
-                            value={aptForm.campaign}
-                            onChange={handleAptChange}
-                            placeholder="Brief campaign description"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">
+                        Campaign <span className="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="campaign"
+                        value={aptForm.campaign}
+                        onChange={handleAptChange}
+                        placeholder="Brief campaign description"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">
-                            Description <span className="required">*</span>
-                            </label>
-                            <textarea
-                            name="description"
-                            value={aptForm.description}
-                            onChange={handleAptChange}
-                            placeholder="Detailed description of the threat"
-                            rows="3"
-                            className="form-textarea"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">
+                        Description <span className="text-danger">*</span>
+                      </label>
+                      <textarea
+                        name="description"
+                        value={aptForm.description}
+                        onChange={handleAptChange}
+                        placeholder="Detailed description of the threat"
+                        rows="3"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">TTPs</label>
-                            <input
-                            type="text"
-                            name="ttps"
-                            value={aptForm.ttps}
-                            onChange={handleAptChange}
-                            placeholder="e.g., T1566.001"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">TTPs</label>
+                      <input
+                        type="text"
+                        name="ttps"
+                        value={aptForm.ttps}
+                        onChange={handleAptChange}
+                        placeholder="e.g., T1566.001"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Industries</label>
-                            <input
-                            type="text"
-                            name="industries"
-                            value={aptForm.industries}
-                            onChange={handleAptChange}
-                            placeholder="e.g., diplomatic, military"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Industries</label>
+                      <input
+                        type="text"
+                        name="industries"
+                        value={aptForm.industries}
+                        onChange={handleAptChange}
+                        placeholder="e.g., diplomatic, military"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">MITRE Framework ID/GID</label>
-                            <input
-                            type="text"
-                            name="mitreId"
-                            value={aptForm.mitreId}
-                            onChange={handleAptChange}
-                            placeholder="e.g., G0003"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">MITRE Framework ID/GID</label>
+                      <input
+                        type="text"
+                        name="mitreId"
+                        value={aptForm.mitreId}
+                        onChange={handleAptChange}
+                        placeholder="e.g., G0003"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">CVE</label>
-                            <input
-                            type="text"
-                            name="cve"
-                            value={aptForm.cve}
-                            onChange={handleAptChange}
-                            placeholder="e.g., CVE-2022-38028"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">CVE</label>
+                      <input
+                        type="text"
+                        name="cve"
+                        value={aptForm.cve}
+                        onChange={handleAptChange}
+                        placeholder="e.g., CVE-2022-38028"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Motive</label>
-                            <input
-                            type="text"
-                            name="motive"
-                            value={aptForm.motive}
-                            onChange={handleAptChange}
-                            placeholder="e.g., cyberespionage"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Motive</label>
+                      <input
+                        type="text"
+                        name="motive"
+                        value={aptForm.motive}
+                        onChange={handleAptChange}
+                        placeholder="e.g., cyberespionage"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Reference URL</label>
-                            <input
-                            type="url"
-                            name="url"
-                            value={aptForm.url}
-                            onChange={handleAptChange}
-                            placeholder="https://..."
-                            className="form-input"
-                            />
-                        </div>
-                    </div> 
-                    {/* END OF NEW WRAPPER */}
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Reference URL</label>
+                      <input
+                        type="url"
+                        name="url"
+                        value={aptForm.url}
+                        onChange={handleAptChange}
+                        placeholder="https://..."
+                        className="form-control"
+                      />
+                    </div>
+                  </div>
 
-                    <button onClick={handleAptSubmit} className="btn btn-submit">
-                        Submit Profile
-                    </button>
+                  <button onClick={handleAptSubmit} className="btn btn-apt w-100 mt-3">
+                    Submit Profile
+                  </button>
                 </div>
+              </div>
             </div>
 
-            <div className="form-card">
-                <div className="card-header infiltrator-header">
-                Infiltrator Form
+            {/* Infiltrator Form */}
+            <div className="col-lg-6">
+              <div className="card h-100 shadow-sm form-card-infiltrator">
+                <div className="card-header text-white infiltrator-header">
+                  <h5 className="mb-0">Infiltrator Form</h5>
                 </div>
-                {/* MODIFIED: Add style to card-body for flex layout */}
-                <div className="card-body" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                    
-                    {/* NEW WRAPPER: Contains all form groups and grows to fill vertical space */}
-                    <div style={{ flexGrow: 1 }}> 
-                        <div className="form-group">
-                            <label className="form-label">
-                            Common Names <span className="required">*</span>
-                            </label>
-                            <input
-                            type="text"
-                            name="commonNames"
-                            value={infiltratorForm.commonNames}
-                            onChange={handleInfiltratorChange}
-                            placeholder="e.g., John Smith, Ivan Petrov"
-                            className="form-input"
-                            />
-                        </div>
+                <div className="card-body d-flex flex-column">
+                  <div className="flex-grow-1">
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">
+                        Common Names <span className="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="commonNames"
+                        value={infiltratorForm.commonNames}
+                        onChange={handleInfiltratorChange}
+                        placeholder="e.g., John Smith, Ivan Petrov"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">
-                            Country of Origin <span className="required">*</span>
-                            </label>
-                            <input
-                            type="text"
-                            name="countryOfOrigin"
-                            value={infiltratorForm.countryOfOrigin}
-                            onChange={handleInfiltratorChange}
-                            placeholder="e.g., Russia"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">
+                        Country of Origin <span className="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="countryOfOrigin"
+                        value={infiltratorForm.countryOfOrigin}
+                        onChange={handleInfiltratorChange}
+                        placeholder="e.g., Russia"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Phone Numbers</label>
-                            <input
-                            type="text"
-                            name="phoneNumbers"
-                            value={infiltratorForm.phoneNumbers}
-                            onChange={handleInfiltratorChange}
-                            placeholder="Comma-separated phone numbers"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Phone Numbers</label>
+                      <input
+                        type="text"
+                        name="phoneNumbers"
+                        value={infiltratorForm.phoneNumbers}
+                        onChange={handleInfiltratorChange}
+                        placeholder="Comma-separated phone numbers"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Email Addresses</label>
-                            <input
-                            type="text"
-                            name="emails"
-                            value={infiltratorForm.emails}
-                            onChange={handleInfiltratorChange}
-                            placeholder="Comma-separated emails"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Email Addresses</label>
+                      <input
+                        type="text"
+                        name="emails"
+                        value={infiltratorForm.emails}
+                        onChange={handleInfiltratorChange}
+                        placeholder="Comma-separated emails"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Targeted Country</label>
-                            <input
-                            type="text"
-                            name="targetedCountry"
-                            value={infiltratorForm.targetedCountry}
-                            onChange={handleInfiltratorChange}
-                            placeholder="e.g., United States"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Targeted Country</label>
+                      <input
+                        type="text"
+                        name="targetedCountry"
+                        value={infiltratorForm.targetedCountry}
+                        onChange={handleInfiltratorChange}
+                        placeholder="e.g., United States"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Affiliated Organization</label>
-                            <input
-                            type="text"
-                            name="affiliatedOrganization"
-                            value={infiltratorForm.affiliatedOrganization}
-                            onChange={handleInfiltratorChange}
-                            placeholder="e.g., APT28, Company XYZ"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Affiliated Organization</label>
+                      <input
+                        type="text"
+                        name="affiliatedOrganization"
+                        value={infiltratorForm.affiliatedOrganization}
+                        onChange={handleInfiltratorChange}
+                        placeholder="e.g., APT28, Company XYZ"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Known Aliases</label>
-                            <input
-                            type="text"
-                            name="knownAliases"
-                            value={infiltratorForm.knownAliases}
-                            onChange={handleInfiltratorChange}
-                            placeholder="Other names used"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Known Aliases</label>
+                      <input
+                        type="text"
+                        name="knownAliases"
+                        value={infiltratorForm.knownAliases}
+                        onChange={handleInfiltratorChange}
+                        placeholder="Other names used"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Social Media Handles</label>
-                            <input
-                            type="text"
-                            name="socialMediaHandles"
-                            value={infiltratorForm.socialMediaHandles}
-                            onChange={handleInfiltratorChange}
-                            placeholder="@username, LinkedIn profile, etc."
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Social Media Handles</label>
+                      <input
+                        type="text"
+                        name="socialMediaHandles"
+                        value={infiltratorForm.socialMediaHandles}
+                        onChange={handleInfiltratorChange}
+                        placeholder="@username, LinkedIn profile, etc."
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Last Known Location</label>
-                            <input
-                            type="text"
-                            name="lastKnownLocation"
-                            value={infiltratorForm.lastKnownLocation}
-                            onChange={handleInfiltratorChange}
-                            placeholder="City, Country"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Last Known Location</label>
+                      <input
+                        type="text"
+                        name="lastKnownLocation"
+                        value={infiltratorForm.lastKnownLocation}
+                        onChange={handleInfiltratorChange}
+                        placeholder="City, Country"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Operational History</label>
-                            <textarea
-                            name="operationalHistory"
-                            value={infiltratorForm.operationalHistory}
-                            onChange={handleInfiltratorChange}
-                            placeholder="Known activities and timeline"
-                            rows="3"
-                            className="form-textarea"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Operational History</label>
+                      <textarea
+                        name="operationalHistory"
+                        value={infiltratorForm.operationalHistory}
+                        onChange={handleInfiltratorChange}
+                        placeholder="Known activities and timeline"
+                        rows="3"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Skillset</label>
-                            <input
-                            type="text"
-                            name="skillset"
-                            value={infiltratorForm.skillset}
-                            onChange={handleInfiltratorChange}
-                            placeholder="e.g., Social engineering, malware development"
-                            className="form-input"
-                            />
-                        </div>
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Skillset</label>
+                      <input
+                        type="text"
+                        name="skillset"
+                        value={infiltratorForm.skillset}
+                        onChange={handleInfiltratorChange}
+                        placeholder="e.g., Social engineering, malware development"
+                        className="form-control"
+                      />
+                    </div>
 
-                        <div className="form-group">
-                            <label className="form-label">Risk Level</label>
-                            <select
-                            name="riskLevel"
-                            value={infiltratorForm.riskLevel}
-                            onChange={handleInfiltratorChange}
-                            className="form-select"
-                            >
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                            <option value="Critical">Critical</option>
-                            </select>
-                        </div>
-                    </div> 
-                    {/* END OF NEW WRAPPER */}
+                    <div className="mb-3">
+                      <label className="form-label fw-bold">Risk Level</label>
+                      <select
+                        name="riskLevel"
+                        value={infiltratorForm.riskLevel}
+                        onChange={handleInfiltratorChange}
+                        className="form-select"
+                      >
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Critical">Critical</option>
+                      </select>
+                    </div>
+                  </div>
 
-                    <button onClick={handleInfiltratorSubmit} className="btn btn-submit">
-                        Submit Profile
-                    </button>
+                  <button onClick={handleInfiltratorSubmit} className="btn btn-infiltrator w-100 mt-3">
+                    Submit Profile
+                  </button>
                 </div>
+              </div>
             </div>
-            </div>
-        </div>
-        </div>
+          </div>
     </div>
   );
 };

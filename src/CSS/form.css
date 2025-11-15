@@ -1,164 +1,80 @@
-/* Container Styles */
 
-.content-wrapper {
-  /* Increased max-width to allow the forms to stretch wider */
-  max-width: 1400px; 
-  margin: 0 auto;
-}
-
-/* Message Styles */
-.message {
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
-.message.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-}
-
-.message.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-}
-
-/* Forms Grid */
-.forms-grid {
-  display: grid;
-  /* CRITICAL CHANGE: Use 1fr 1fr for two flexible columns */
-  grid-template-columns: 1fr 1fr; 
-  gap: 20px;
-  margin-top: 30px;
-  /* Ensures items stretch to match the height of the tallest card */
-  align-items: stretch; 
-}
-
-/* Card Styles */
-.form-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  /* CRITICAL: Must be flex column so card-body can grow */
-  display: flex;
-  flex-direction: column; 
-  /* Sets a minimum height, ensuring both cards start at the same vertical dimension */
-  min-height: 850px; 
-}
-
-.card-header {
-  color: white;
-  padding: 15px;
-  font-weight: bold;
-}
-
-/* NEW COLORS: Matching the Profile Card theme */
+/* APT Profile Styling - Red Theme */
 .apt-header {
-  /* Using the base color for Threat Card 0 (Red) */
-  background-color: #CC0000; 
-}
-
-.infiltrator-header {
-  /* Using the base color for Threat Card 1 (Dark Teal/Gray) */
-  background-color: #4e727e;
-}
-
-.card-body {
-  padding: 20px;
-  /* CRITICAL: Allows card-body to take up all remaining height */
-  flex-grow: 1;
-  /* Supports the inline JS styles (display: flex; flex-direction: column; justify-content: space-between) */
-}
-
-/* Form Styles */
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 5px;
+  background-color: #3D0000 !important;
   font-weight: bold;
 }
 
-.required {
-  color: red;
-}
-
-.form-input,
-.form-textarea,
-.form-select {
-  width: 100%;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-}
-
-.form-textarea {
-  resize: vertical;
-}
-
-/* Button Styles */
-.btn {
-  /* Margin top ensures separation from the fields above it */
-  margin-top: 20px; 
-  width: 100%;
+.btn-apt {
+  background-color: #CC0000;
+  color: white;
+  font-weight: bold;
   padding: 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease;
 }
 
-/* Generic submit button class */
-.btn-submit {
-  /* Removed generic background-color */
+.btn-apt:hover {
+  background-color: #3D0000;
   color: white;
 }
 
-/* NEW: Themed submit button for APT (Red) */
-.btn-submit.apt-button {
-  background-color: #CC0000; 
-}
-.btn-submit.apt-button:hover {
-  background-color: #A30000; 
+.btn-apt:focus {
+  background-color: #3D0000;
+  box-shadow: 0 0 0 0.25rem rgba(204, 0, 0, 0.5);
 }
 
-/* NEW: Themed submit button for Infiltrator (Dark Teal/Gray) */
-.btn-submit.infiltrator-button {
-  background-color: #4e727e;
-}
-.btn-submit.infiltrator-button:hover {
-  background-color: #37535b;
+/* Infiltrator Profile Styling - Yellow/Orange Theme */
+.infiltrator-header {
+  background-color: #845001 !important;
+  font-weight: bold;
 }
 
-/* Responsive Design */
-@media (max-width: 1400px) {
-    /* If screen is wide, allow cards to be big but apply a max width to prevent excessive stretching */
-    .form-card {
-        max-width: 700px;
-    }
+.btn-infiltrator {
+  background-color: #ae7100;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  transition: background-color 0.2s ease;
 }
 
-@media (max-width: 1250px) {
-  /* Switch to single column on smaller screens */
-  .forms-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .form-card {
-      min-height: auto; /* Allow fluid height on small screens */
-      max-width: 100%;
-  }
+.btn-infiltrator:hover {
+  background-color: #845001;
+  color: white;
 }
 
-@media (max-width: 768px) {
-  .forms-grid {
-    grid-template-columns: 1fr;
+.btn-infiltrator:focus {
+  background-color: #845001;
+  box-shadow: 0 0 0 0.25rem rgba(174, 113, 0, 0.5);
+}
+
+/* Card Enhancements */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  border: none !important;
+}
+
+.card-header h5 {
+  font-weight: bold;
+}
+
+/* Form Input Focus States */
+.form-card-apt .form-control:focus,
+.form-card-apt .form-select:focus {
+  border-color: #CC0000;
+  box-shadow: 0 0 0 0.25rem rgba(204, 0, 0, 0.25);
+}
+
+.form-card-infiltrator .form-control:focus,
+.form-card-infiltrator .form-select:focus {
+  border-color: #ae7100;
+  box-shadow: 0 0 0 0.25rem rgba(174, 113, 0, 0.25);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .content-wrapper {
+    max-width: 100%;
+    padding: 0 15px;
   }
 }

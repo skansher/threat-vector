@@ -133,79 +133,81 @@ const Profile = () => {
 
 
   return (
-    <div>
+    <div class="page-container">
       <Header />
-      <div className="page-container">
-        <h1>Threat Profiles</h1>
+        <div className="alt-banner mt-5 mb-4, ms-4 me-4">
+            <h1>APT Profiles</h1>
+            <p className="welcome-subtitle">Aggregated list of Advanced Persistent Threats.</p>
+            <br/>
+            {/* Filter Section */}
+            <div className="filters-container d-flex justify-content-center flex-wrap gap-3 mt-4">
+              <div className="filter">
+                <label htmlFor="industry">Industry:</label>
+                <select
+                  id="industry"
+                  name="industry"
+                  value={filters.industry}
+                  onChange={handleFilterChange}
+                >
+                  <option value="">All</option>
+                  {industryOptions.map((ind, idx) => (
+                    <option key={idx} value={ind}>{ind}</option>
+                  ))}
+                </select>
+              </div>
 
-        {/* Filter Section */}
-        <div className="filter-section">
-          <div className="filter">
-            <label htmlFor="industry">Industry:</label>
-            <select
-              id="industry"
-              name="industry"
-              value={filters.industry}
-              onChange={handleFilterChange}
-            >
-              <option value="">All</option>
-              {industryOptions.map((ind, idx) => (
-                <option key={idx} value={ind}>{ind}</option>
-              ))}
-            </select>
-          </div>
+              <div className="filter">
+                <label htmlFor="country">Targeted Country:</label>
+                <select
+                  id="country"
+                  name="countryTarget"
+                  value={filters.countryTarget}
+                  onChange={handleFilterChange}
+                >
+                  <option value="">All</option>
+                  {countryTargetOptions.map((c, idx) => (
+                    <option key={idx} value={c}>{c}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div className="filter">
+                <label htmlFor="origin">Country Origin:</label>
+                <select
+                  id="origin"
+                  name="countryOrigin"
+                  value={filters.countryOrigin}
+                  onChange={handleFilterChange}
+                >
+                  <option value="">All</option>
+                  {countryOriginOptions.map((ind, idx) => (
+                    <option key={idx} value={ind}>{ind}</option>
+                  ))}
+                </select>
+              </div>
 
-          <div className="filter">
-            <label htmlFor="country">Targeted Country:</label>
-            <select
-              id="country"
-              name="countryTarget"
-              value={filters.countryTarget}
-              onChange={handleFilterChange}
-            >
-              <option value="">All</option>
-              {countryTargetOptions.map((c, idx) => (
-                <option key={idx} value={c}>{c}</option>
-              ))}
-            </select>
-          </div>
-          
-           <div className="filter">
-            <label htmlFor="origin">Country Origin:</label>
-            <select
-              id="origin"
-              name="countryOrigin"
-              value={filters.countryOrigin}
-              onChange={handleFilterChange}
-            >
-              <option value="">All</option>
-              {countryOriginOptions.map((ind, idx) => (
-                <option key={idx} value={ind}>{ind}</option>
-              ))}
-            </select>
-          </div>
+              <div className="filter">
+                <label htmlFor="ttps">TTPs:</label>
+                <select
+                  id="ttps"
+                  name="ttps"
+                  value={filters.ttps}
+                  onChange={handleFilterChange}
+                >
+                  <option value="">All</option>
+                  {ttpsOptions.map((ind, idx) => (
+                    <option key={idx} value={ind}>{ind}</option>
+                  ))}
+                </select>
+              </div>
 
-           <div className="filter">
-            <label htmlFor="ttps">TTPs:</label>
-            <select
-              id="ttps"
-              name="ttps"
-              value={filters.ttps}
-              onChange={handleFilterChange}
-            >
-              <option value="">All</option>
-              {ttpsOptions.map((ind, idx) => (
-                <option key={idx} value={ind}>{ind}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="filter">
-            <label>&nbsp;</label>
-            <button className="reset-button" onClick={handleResetFilters}>
-              Reset Filters
-            </button>
-          </div>
+              <div className="filter">
+                <label>&nbsp;</label>
+                <button className="reset-button" onClick={handleResetFilters}>
+                  Reset Filters
+                </button>
+              </div>
+            </div>
         </div>
 
         {/* APPLYING THE EXPANDED LAYOUT CLASS */}
@@ -226,7 +228,6 @@ const Profile = () => {
             <p>No profiles found</p>
           )}
         </div>
-      </div>
     </div>
   );
 };
