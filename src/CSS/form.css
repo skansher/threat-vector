@@ -6,20 +6,21 @@
 }
 
 .btn-apt {
-  background-color: #CC0000;
-  color: white;
-  font-weight: bold;
+  background-color: #CC0000 !important;
+  border: 1px solid #CC0000 !important;
+  color: white !important;
+  font-weight: bold !important;
   padding: 12px;
   transition: background-color 0.2s ease;
 }
 
 .btn-apt:hover {
-  background-color: #3D0000;
+  background-color: #3D0000 !important;
   color: white;
 }
 
 .btn-apt:focus {
-  background-color: #3D0000;
+  background-color: #3D0000  !important;
   box-shadow: 0 0 0 0.25rem rgba(204, 0, 0, 0.5);
 }
 
@@ -30,20 +31,21 @@
 }
 
 .btn-infiltrator {
-  background-color: #ae7100;
-  color: white;
-  font-weight: bold;
+  background-color: #ae7100 !important;
+  border: 1px solid #ae7100 !important;
+  color: white !important;
+  font-weight: bold !important;
   padding: 12px;
   transition: background-color 0.2s ease;
 }
 
 .btn-infiltrator:hover {
-  background-color: #845001;
+  background-color: #845001 !important;
   color: white;
 }
 
 .btn-infiltrator:focus {
-  background-color: #845001;
+  background-color: #845001 !important;
   box-shadow: 0 0 0 0.25rem rgba(174, 113, 0, 0.5);
 }
 
@@ -61,13 +63,13 @@
 /* Form Input Focus States */
 .form-card-apt .form-control:focus,
 .form-card-apt .form-select:focus {
-  border-color: #CC0000;
+  border-color: #CC0000 !important;
   box-shadow: 0 0 0 0.25rem rgba(204, 0, 0, 0.25);
 }
 
 .form-card-infiltrator .form-control:focus,
 .form-card-infiltrator .form-select:focus {
-  border-color: #ae7100;
+  border-color: #ae7100 !important;
   box-shadow: 0 0 0 0.25rem rgba(174, 113, 0, 0.25);
 }
 
