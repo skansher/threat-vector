@@ -15,13 +15,13 @@
 }
 
 .modal-header-custom.color-1 {
-  background-color: #4e727e;
-  color: #1f2E33;
+  background-color: #007c7c;
+  color: #002323;
 }
 
 .modal-header-custom.color-2 {
-  background-color: #d4a929;
-  color: #624B04;
+  background-color: #ae7100;
+  color: rgb(67, 51, 3);
 }
 
 .modal-header-custom .btn-close {

@@ -1,7 +1,7 @@
 /* Card (Base Style - Now Compact) */
 .threat-card {
   border-radius: 12px;
-  border: 4px solid #4E727E;
+  border: 0;
   min-height: 200px;
   max-height: 250px;
   padding: 0;
@@ -20,12 +20,13 @@
 
 /* Color Themes */
 .threat-card.color-0 {
-  background-color: #CC0000;
-  border-color: #3D0000;
+  border-top: 4px solid #CC0000;
+  background-color: #3D0000;
 }
 
 .threat-card.color-0:hover {
-  background-color: #e60000;
+  box-shadow: 0 15px 40px rgba(204, 0, 0, 0.3);
+  border-top-color: #FF0000;
 }
 
 .threat-card.color-0 .card-title {
@@ -33,12 +34,13 @@
 }
 
 .threat-card.color-1 {
-  background-color: #4e727e;
-  border-color: #1f2E33;
+  border-top: 4px solid #007c7c;
+  background-color: #004d4d;
 }
 
 .threat-card.color-1:hover {
-  background-color: #5a8794;
+  box-shadow: 0 15px 40px rgba(0, 77, 77, 0.3);
+  border-top-color: #00bdbd;
 }
 
 .threat-card.color-1 .card-title {
@@ -46,12 +48,13 @@
 }
 
 .threat-card.color-2 {
-  background-color: #d4a929;
-  border-color: #845001;
+  border-top: 4px solid #ae7100;
+  background-color: #845001;
 }
 
 .threat-card.color-2:hover {
-  background-color: rgb(227, 182, 48);
+  box-shadow: 0 15px 40px rgba(122, 79, 0, 0.3);
+  border-top-color: #e49400;
 }
 
 .threat-card.color-2 .card-title {
@@ -68,7 +71,8 @@
 
 .card-info {
   font-size: 0.85rem;
-  font-weight: 500;;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .info-row small {
