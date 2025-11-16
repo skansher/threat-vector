@@ -1,0 +1,75 @@
+.profile-modal .modal-content {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header-custom {
+  border-bottom: 2px solid #ddd;
+  padding: 1.5rem;
+}
+
+.modal-header-custom.color-0 {
+  background-color: #CC0000;
+  color: #3D0000;
+}
+
+.modal-header-custom.color-1 {
+  background-color: #4e727e;
+  color: #1f2E33;
+}
+
+.modal-header-custom.color-2 {
+  background-color: #d4a929;
+  color: #624B04;
+}
+
+.modal-header-custom .btn-close {
+  filter: brightness(0) invert(1);
+}
+
+.modal-header-custom.color-2 .btn-close {
+  filter: brightness(0);
+}
+
+.profile-info-section {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.profile-field {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.profile-field:last-child {
+  border-bottom: none;
+}
+
+/* Link styling in profile fields */
+.profile-info-section a {
+  transition: all 0.2s ease;
+}
+
+.profile-info-section a:hover {
+  text-decoration: underline !important;
+  color: #0056b3 !important;
+}
+
+.hover-underline:hover {
+  text-decoration: underline !important;
+}
+
+.notes-sidebar {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .notes-sidebar {
+    margin-top: 20px;
+  }
+}
