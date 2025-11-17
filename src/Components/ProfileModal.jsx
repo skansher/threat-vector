@@ -13,58 +13,84 @@ const ProfileModal = ({ show, onHide, profile, colorClass }) => {
   };
 
   const hasValue = (value) => {
-    return value && value.trim() !== "" && value !== "N/A";
-  };
+  if (typeof value === 'string') {
+    return value.trim() !== '' && value !== 'N/A';
+  }
+
+  if (Array.isArray(value)) {
+    return value.some((v) => typeof v === 'string' && v.trim() !== '' && v !== 'N/A');
+  }
+
+  if (typeof value === 'object' && value !== null) {
+    return Object.values(value).some(hasValue);
+  }
+
+  return false;
+};
 
   // Helper function to check if a string is a valid URL
-  const isURL = (str) => {
-    try {
-      new URL(str);
-      return true;
-    } catch {
-      return false;
-    }
-  };
+ const isURL = (str) => {
+  try {
+    new URL(str);
+    return true;
+  } catch {
+    return false;
+  }
+};
 
   // Helper function to render field value (with link if it's a URL)
-  const renderFieldValue = (key, value) => {
-    // Check if the key is "URL" or if the value looks like a URL
-    if (key.toLowerCase() === 'url' || isURL(value)) {
-      // Handle multiple URLs separated by commas
-      const urls = value.split(',').map(url => url.trim());
-      
-      if (urls.length > 1) {
-        return (
-          <div className="d-flex flex-column gap-1">
-            {urls.map((url, idx) => (
-              <a 
-                key={idx}
-                href={url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-primary text-decoration-none hover-underline"
-              >
-                {url} <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '0.8rem' }}></i>
-              </a>
-            ))}
-          </div>
-        );
-      }
-      
+const renderFieldValue = (key, value) => {
+  const normalize = (v) => (typeof v === 'string' ? v.trim() : '');
+
+  const renderLink = (url, idx) => (
+    <a
+      key={idx}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary text-decoration-none hover-underline"
+    >
+      {url}
+      <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '0.8rem' }}></i>
+    </a>
+  );
+
+  if (typeof value === 'string') {
+    const urls = value.split(',').map(normalize).filter(isURL);
+    if (key.toLowerCase() === 'url' || urls.length > 0) {
       return (
-        <a 
-          href={value} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-primary text-decoration-none hover-underline"
-        >
-          {value} <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '0.8rem' }}></i>
-        </a>
+        <div className="d-flex flex-column gap-1">
+          {urls.map((url, idx) => renderLink(url, idx))}
+        </div>
       );
     }
-    
     return value;
-  };
+  }
+
+  if (Array.isArray(value)) {
+    return (
+      <ul className="ps-3 mb-0">
+        {value.map((item, idx) => (
+          <li key={idx}>{renderFieldValue(key, item)}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  if (typeof value === 'object' && value !== null) {
+    return (
+      <div className="ps-3">
+        {Object.entries(value).map(([subKey, subVal], idx) => (
+          <div key={idx}>
+            <strong>{subKey}:</strong> {renderFieldValue(subKey, subVal)}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return String(value);
+};
 
   if (!profile) return null;
 

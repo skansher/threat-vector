@@ -1,7 +1,7 @@
 {
   "Infiltrator 1": [
     {
-      "case_id": "INC-2025-0914-003",
+    "case_id": "INC-2025-0914-003",
     "local_alias": "Project_Phoenix_Access",
     "threat_actor_group": "Unclassified (Potential Financially Motivated)",
     "current_status": "Contained, but evidence of persistent shell access remains.",
