@@ -1,18 +1,59 @@
 {
   "Infiltrator 1": [
     {
-      "Common Names": "Test",
-      "Phone Numbers": "555-555-555",
-      "Emails": "test@test.com",
-      "Country of Origin": "US",
-      "Targeted Country": "UK",
-      "Affiliated Organization": "",
-      "Known Aliases": "",
-      "Social Media Handles": "",
-      "Last Known Location": "",
-      "Operational History": "",
-      "Skillset": "",
-      "Risk Level": "Medium"
+      "case_id": "INC-2025-0914-003",
+    "local_alias": "Project_Phoenix_Access",
+    "threat_actor_group": "Unclassified (Potential Financially Motivated)",
+    "current_status": "Contained, but evidence of persistent shell access remains.",
+    "targeted_assets": [
+      "DB-PROD-SQL-04 (Staging Data)",
+      "HR-FileShare-01 (Credential Harvest)",
+      "VDI-Farm-A-32 (Pivot Point)"
+    ],
+    "initial_access_vector": {
+      "type": "Exploited Public-Facing Service",
+      "details": "Vulnerability CVE-2025-XXXX on legacy JBoss server, authenticated via `jboss:jboss` default credentials."
+    },
+    "key_ttps_observed_internal": [
+      {
+        "tactic": "Defense Evasion",
+        "technique": "Living Off the Land (LOLBAS)",
+        "details": "Heavy use of native `certutil` utility for file download/decoding and `bitsadmin` for C2 communication."
+      },
+      {
+        "tactic": "Discovery",
+        "technique": "Network Share Discovery",
+        "details": "Used `net view /domain` and `nmap` (custom build) to map the domain structure and adjacent subnets."
+      },
+      {
+        "tactic": "Persistence",
+        "technique": "Scheduled Task/Job",
+        "details": "Installed a scheduled task named 'WMI-Updater' set to execute a PowerShell script every 6 hours."
+      }
+    ],
+    "observed_ioc_internal": {
+      "malicious_file_hashes_sha256": [
+        "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b"
+      ],
+      "process_names": [
+        "certutil.exe (renamed to cmd.exe)",
+        "WMI-Updater.ps1"
+      ],
+      "internal_staging_paths": [
+        "C:\\Users\\Public\\Videos\\temp_data.zip",
+        "\\Appdata\\Local\\Temp\\system_export"
+      ],
+      "external_c2_indicators": [
+        "104.244.42.105 (Port 443, traffic pattern looks like HTTPS beaconing)",
+        "api-update-service.xyz"
+      ]
+    },
+    "remediation_status": {
+      "access_point_closed": true,
+      "persistence_removed": false,
+      "notes": "Original JBoss vulnerability patched. Still tracking persistence method via WMI-Updater script."
+    },
+    "analyst_notes": "Actor shows high proficiency in obfuscation. They appear to be targeting old user data archives stored on the SQL server. Elevated privileges (domain admin) obtained on 2025-11-15 14:30 EST."
     }
   ]
 }

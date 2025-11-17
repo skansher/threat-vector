@@ -73,6 +73,50 @@
   box-shadow: 0 0 0 0.25rem rgba(174, 113, 0, 0.25);
 }
 
+/* Accordion Custom Styling */
+.accordion-item {
+  border: 2px solid #4E727E !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background-color: #0E1517 !important;
+  color: white !important;
+  font-size: 1.1rem;
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #1a2528 !important;
+  color: white !important;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: #4E727E;
+}
+
+.accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.accordion-body {
+  padding: 0 !important;
+}
+
+/* Remove the h-100 restriction from forms in accordion */
+.accordion-body .card {
+  height: auto !important;
+  border-radius: 0 !important;
+}
+
+.badge {
+  font-size: 1.2rem !important;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .content-wrapper {
