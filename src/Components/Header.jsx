@@ -55,7 +55,7 @@ const Header = () => {
                                 Threat Profiles
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link 
                                 to="/infiltrators" 
                                 className={`nav-link header-element ${isActive('/infiltrators') ? 'active' : ''}`}
@@ -63,7 +63,7 @@ const Header = () => {
                             >
                                 IT Infiltrators
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <Link 
                                 to="/createProfile" 

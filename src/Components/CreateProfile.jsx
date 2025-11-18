@@ -218,10 +218,10 @@ const CreateProfile = () => {
         </div>
       )}
 
-      <div className="row d-flex flex-row">
+      <div className="row d-flex flex-row justify-content-center">
           {/* APT Profile Accordion */}
-          <div className="col-lg-6">
-            <Accordion defaultActiveKey="0" className="mt-4">
+          <div className="col-lg-8">
+            <Accordion defaultActiveKey="1" className="mt-4">
                 <Accordion.Item eventKey="0" className="mb-3">
             <Accordion.Header className="accordion-header-custom">
               <div className="d-flex align-items-center gap-2">
@@ -240,7 +240,7 @@ const CreateProfile = () => {
           </div>
 
           {/* Infiltrator Incident Accordion */}
-          <div className="col-lg-6">
+          {/* <div className="col-lg-6">
             <Accordion defaultActiveKey="0" className="mt-4">
             <Accordion.Item eventKey="1" className="mb-3">
             <Accordion.Header className="accordion-header-custom">
@@ -257,7 +257,7 @@ const CreateProfile = () => {
             </Accordion.Body>
           </Accordion.Item>
           </Accordion>
-          </div>
+          </div> */}
       </div>
     </div>
   );
