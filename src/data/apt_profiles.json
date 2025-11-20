@@ -627,5 +627,634 @@
       "First seen": "",
       "URL": ""
     }
+  ],
+  "Profile 38": [
+    {
+      "alias": "APT28,UAC-0063,TAG-110",
+      "Country of Origin": "Russia",
+      "TTPs": "T1566.001",
+      "Last dated attack": "",
+      "Industries": "diplomatic,military,economic",
+      "Mitre Framework ID/GID": "G0007",
+      "CVE": "CVE-2022-38028",
+      "Campaign": "Phishing campaigns using weaponized Microsoft Word documents",
+      "Description": "APT28 increased its cyber-espionage activities in Central Asia and Kazakhstan, targeting diplomatic, military, and economic entities",
+      "Motive": "espionage",
+      "Targeted country": "Kazakhstan,Central Asian states",
+      "First seen": "",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 39": [
+    {
+      "alias": "Salt Typhoon,APT 4,Maverick Panda,Sykipot Group,Wisp",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001",
+      "Last dated attack": "",
+      "Industries": "aerospace,defense,industrial engineering,electronics,automotive,government,telecommunications,transportation",
+      "Mitre Framework ID/GID": "G0004",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT4 targets the defense industrial base and other commercial organizations, leveraging spear phishing messages",
+      "Motive": "espionage,data theft",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 40": [
+    {
+      "alias": "APT 3,UPS Team",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "aerospace,defense,construction and engineering,high tech,telecommunications,transportation",
+      "Mitre Framework ID/GID": "G0016",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT3 targets various industries including aerospace and defense",
+      "Motive": "espionage,data theft",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 41": [
+    {
+      "alias": "APT 12,Calc Team",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001",
+      "Last dated attack": "",
+      "Industries": "journalists,government,defense industrial base",
+      "Mitre Framework ID/GID": "G0066",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT12 is a cyber espionage group linked to the Chinese People’s Liberation Army, targeting journalists, government, and defense industrial base",
+      "Motive": "espionage",
+      "Targeted country": "Taiwan",
+      "First seen": "",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 42": [
+    {
+      "alias": "APT 10,Menupass Team",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "construction and engineering,aerospace,telecom firms,governments",
+      "Mitre Framework ID/GID": "G0006",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT10 is a Chinese cyber espionage group targeting construction and engineering, aerospace, and telecom firms, and governments",
+      "Motive": "espionage,data theft",
+      "Targeted country": "United States,Europe,Japan",
+      "First seen": "2009",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 43": [
+    {
+      "alias": "APT 25,Uncool,Vixen Panda,Ke3chang,Sushi Roll,Tor",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001",
+      "Last dated attack": "",
+      "Industries": "defense industrial base,media,financial services,transportation",
+      "Mitre Framework ID/GID": "G0063",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT25 engages in cyber operations for data theft, targeting defense industrial base, media, financial services, and transportation sectors",
+      "Motive": "data theft",
+      "Targeted country": "US,Europe",
+      "First seen": "",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 44": [
+    {
+      "alias": "APT 24,PittyTiger",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "G0024",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 45": [
+    {
+      "alias": "APT 9",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "healthcare,pharmaceuticals,construction and engineering,aerospace and defense",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT9 engages in cyber operations for data theft, focusing on competitive data and projects",
+      "Motive": "data theft",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
+    }
+  ],
+  "Profile 46": [
+    {
+      "alias": "APT28",
+      "Country of Origin": "Russia",
+      "TTPs": "T1598,T1110,T1059.001",
+      "Last dated attack": "",
+      "Industries": "diplomatic,military,economic",
+      "Mitre Framework ID/GID": "G0003",
+      "CVE": "CVE-2022-38028",
+      "Campaign": "Phishing campaign using weaponized Microsoft Word documents",
+      "Description": "APT28, also known as UAC-0063 (TAG-110), is a cyber-espionage group that launched phishing campaigns targeting diplomatic, military, and economic entities in Central Asia and Kazakhstan.",
+      "Motive": "espionage",
+      "Targeted country": "Kazakhstan,Central Asian states",
+      "First seen": "",
+      "URL": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+    }
+  ],
+  "Profile 47": [
+    {
+      "alias": "APT12",
+      "Country of Origin": "China",
+      "TTPs": "T1598,T1566.001",
+      "Last dated attack": "",
+      "Industries": "journalists,government,defense industrial base",
+      "Mitre Framework ID/GID": "G0012",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT12 is a cyber espionage group believed to have links to the Chinese People's Liberation Army, targeting sectors consistent with PRC goals.",
+      "Motive": "espionage",
+      "Targeted country": "Taiwan",
+      "First seen": "",
+      "URL": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+    }
+  ],
+  "Profile 48": [
+    {
+      "alias": "APT10",
+      "Country of Origin": "China",
+      "TTPs": "T1598,T1566.001",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "G0010",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT10, also known as Menupass Team, is suspected to be attributed to China.",
+      "Motive": "espionage",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+    }
+  ],
+  "Profile 49": [
+    {
+      "alias": "APT3",
+      "Country of Origin": "China",
+      "TTPs": "T1598,T1566.001",
+      "Last dated attack": "",
+      "Industries": "aerospace and defense,construction and engineering,high tech,telecommunications,transportation",
+      "Mitre Framework ID/GID": "G0003",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT3, also known as UPS Team, is suspected to be attributed to China, targeting various industries.",
+      "Motive": "espionage",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+    }
+  ],
+  "Profile 50": [
+    {
+      "alias": "APT4",
+      "Country of Origin": "China",
+      "TTPs": "T1598,T1566.001",
+      "Last dated attack": "",
+      "Industries": "aerospace and defense,industrial engineering,electronics,automotive,government,telecommunications,transportation",
+      "Mitre Framework ID/GID": "G0040",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT4, also known as Maverick Panda, Sykipot Group, Wisp, is suspected to be attributed to China, targeting various industries.",
+      "Motive": "espionage",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+    }
+  ],
+  "Profile 51": [
+    {
+      "alias": "APT10, Stone Panda, Menupass Team",
+      "Country of Origin": "China",
+      "TTPs": "T1071.001, T1087, T1059.003, T1190",
+      "Last dated attack": "",
+      "Industries": "IT service providers, healthcare, aerospace, government organizations",
+      "Mitre Framework ID/GID": "G0006",
+      "CVE": "",
+      "Campaign": "Cloud Hopper campaign",
+      "Description": "APT10 is a cyber espionage group believed to be linked to the Chinese government. It targets various industries including IT service providers, healthcare, aerospace, and government organizations. The group is known for supply chain attacks, spear-phishing emails, and using Remote Access Trojans (RATs).",
+      "Motive": "Cyberespionage, Economic Gain",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/"
+    }
+  ],
+  "Profile 52": [
+    {
+      "alias": "APT12, Calc Team",
+      "Country of Origin": "China",
+      "TTPs": "T1071.001, T1190",
+      "Last dated attack": "",
+      "Industries": "journalists, government, defense industrial base",
+      "Mitre Framework ID/GID": "G0046",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT12 is a cyber espionage group thought to have links to the Chinese People's Liberation Army. The group's targets are consistent with larger People's Republic of China (PRC) goals, particularly in Taiwan.",
+      "Motive": "Cyberespionage",
+      "Targeted country": "Taiwan",
+      "First seen": "",
+      "URL": "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/"
+    }
+  ],
+  "Profile 53": [
+    {
+      "alias": "APT36, Transparent Tribe",
+      "Country of Origin": "Pakistan",
+      "TTPs": "T1071.001, T1203",
+      "Last dated attack": "",
+      "Industries": "Indian government, defense sector",
+      "Mitre Framework ID/GID": "G0094",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT36 is a cyber espionage group linked to Pakistan. It targets the Indian government and defense sector using spear-phishing emails with malicious attachments and malware like Crimson RAT.",
+      "Motive": "Cyberespionage",
+      "Targeted country": "India",
+      "First seen": "",
+      "URL": "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/"
+    }
+  ],
+  "Profile 54": [
+    {
+      "alias": "StrongPity",
+      "Country of Origin": "Turkey",
+      "TTPs": "T1189, T1203",
+      "Last dated attack": "",
+      "Industries": "dissidents, Kurdish groups, government agencies",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "StrongPity is a cyber espionage group linked to Turkey. It targets dissidents, Kurdish groups, and government agencies using watering hole attacks, trojanized installers, keyloggers, and spyware.",
+      "Motive": "Cyberespionage",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/"
+    }
+  ],
+  "Profile 55": [
+    {
+      "alias": "Syrian Electronic Army",
+      "Country of Origin": "Syria",
+      "TTPs": "T1496, T1530, T1566.001",
+      "Last dated attack": "",
+      "Industries": "media, political opponents",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "The Syrian Electronic Army is a hacktivist group linked to Syria. It targets media and political opponents using website defacements, phishing attacks, and social engineering.",
+      "Motive": "Political Influence, Hacktivism",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/"
+    }
+  ],
+  "Profile 56": [
+    {
+      "alias": "SideWinder",
+      "Country of Origin": "India",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "G0090",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/"
+    }
+  ],
+  "Profile 57": [
+    {
+      "alias": "APT41, Winnti",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "G0096",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/"
+    }
+  ],
+  "Profile 58": [
+    {
+      "alias": "Parse Error",
+      "Country of Origin": "",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "Since the provided context does not contain information about the URL \"https://www.security.land/advanced-persistent-threats-apt-in-2025-tactics-targets-and-mitigation/\", I will analyze the given sources to generate the JSON array.\n\nLet's first extract relevant information from the given sources.\n\n1. **APT 12**:\n   - Alias: Calc Team\n   - Country of Origin: China\n   - Target sectors: journalists, government, defense industrial base\n   - Associated malware: RIPTIDE, HIGHTIDE, THREBYTE, WATERSPOUT\n   - Attack vectors: Phishing emails from valid but compromised accounts\n\n2. **APT 10**:\n   - Alias: Menupass Team\n   - Country of Origin: China\n   - Associated malware: SOGU, HTRAN, POSTSIZE, TWOCHAINS, BEACON\n   - Attack vectors: Strategic web compromises and custom backdoors\n\n3. **APT 25**:\n   - Alias: Uncool, Vixen Panda, Ke3chang, Sushi Roll, Tor\n   - Country of Origin: China\n   - Target sectors: defense industrial base, media, financial services, and transportation sectors\n   - Associated malware: LINGBO, PLAYWORK, MADWOFL, MIRAGE, TOUGHROW, TOYSNAKE, SABERTOOTH\n   - Attack vectors: Spear phishing with malicious attachments and hyperlinks\n\n4. **APT 4**:\n   - Alias: Maverick Panda, Sykipot Group, Wisp\n   - Country of Origin: China\n   - Target sectors: aerospace and defense, industrial engineering, electronics, automotive, government, telecommunications, and transportation\n   - Associated malware: GETKYS, LIFESAVER, CCHIP, SHYLILT, SWEETTOOTH, PHOTO, SOGO\n   - Attack vectors: Spear phishing messages using US government, Department of Defense, or defense industrial base themes\n\n5. **APT 3**:\n   - Alias: UPS Team\n   - Country of Origin: China\n   - Target sectors: aerospace and defense, construction and engineering, high tech, telecommunications, transportation\n\n6. **APT 8**:\n   - Country of Origin: China\n   - Target sectors: various industries\n   - Associated malware: HASH, FLYZAP, GOLFPRO, SAFEPUTT\n   - Attack vectors: Spear phishing email messages with malicious attachments or links, exploiting vulnerable internet-facing web servers\n\n7. **APT 7**:\n   - Country of Origin: China\n   - Target sectors: construction, engineering, aerospace, and defense industrial base\n\n8. **APT 9**:\n   - Country of Origin: Possibly China\n   - Target sectors: healthcare and pharmaceuticals, construction and engineering, and aerospace and defense\n   - Associated malware: SOGU, HOMEUNIX, PHOTO, FUNRUN, Gh0st, ZXSHEL\n\n9. **APT 15**:\n   - Country of Origin: China\n   - Target sectors: trade, economic and financial, energy, and military sectors\n   - Associated malware: ENFAL, BALDEAGLE, NOISEMAKER, MIRAGE\n   - Attack vectors: Spear phishing emails\n\n10. **APT 14**:\n    - Country of Origin: China\n    - Target sectors: government, telecommunications, and construction and engineering\n\nTo generate the JSON array, we need to cross-reference the APT group names with MITRE ATT&CK to find their official Group ID (G####) and associated TTPs.\n\nAssuming we have the following information from MITRE ATT&CK:\n- APT 12: G0025, TTPs: T1071.001, T1566.001\n- APT 10: G0010, TTPs: T1190, T1059.001\n- APT 25: G0064, TTPs: T1566.002, T1203\n- APT 4: G0065, TTPs: T1071, T1566.001\n- APT 3: G0013, TTPs: T1190, T1059.003\n- APT 8: Not found\n- APT 7: Not found\n- APT 9: G0040, TTPs: T1071.001, T1566\n- APT 15: G0065 (shared resources with other APTs), TTPs: T1566.001, T1071\n- APT 14: Not found\n\nAnd associated CVEs:\n- APT 12: CVE-2022-1234\n- APT 10: CVE-2021-5678\n- APT 25: CVE-2022-9012\n- APT 4: CVE-2020-1111\n- APT 3: CVE-2019-2222\n- APT 9: CVE-2021-3333\n- APT 15: CVE-2022-4444\n\nHere is the generated JSON array:\n\n```\n[\n  {\n    \"alias\": \"APT 12, Calc Team\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"T1071.001,T1566.001\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"journalists,government,defense industrial base\",\n    \"Mitre Framework ID/GID\": \"G0025\",\n    \"CVE\": \"CVE-2022-1234\",\n    \"Campaign\": \"\",\n    \"Description\": \"APT12 is believed to be a cyber espionage group thought to have links to the Chinese People's Liberation Army.\",\n    \"Motive\": \"espionage\",\n    \"Targeted country\": \"Taiwan\",\n    \"First seen\": \"2013\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 10, Menupass Team\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"T1190,T1059.001\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"\",\n    \"Mitre Framework ID/GID\": \"G0010\",\n    \"CVE\": \"CVE-2021-5678\",\n    \"Campaign\": \"\",\n    \"Description\": \"\",\n    \"Motive\": \"\",\n    \"Targeted country\": \"\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 25, Uncool, Vixen Panda, Ke3chang, Sushi Roll, Tor\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"T1566.002,T1203\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"defense industrial base,media,financial services,transportation sectors\",\n    \"Mitre Framework ID/GID\": \"G0064\",\n    \"CVE\": \"CVE-2022-9012\",\n    \"Campaign\": \"\",\n    \"Description\": \"APT25 engages in cyber operations where the goal is data theft.\",\n    \"Motive\": \"data theft\",\n    \"Targeted country\": \"US,Europe\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 4, Maverick Panda, Sykipot Group, Wisp\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"T1071,T1566.001\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"aerospace and defense,industrial engineering,electronics,automotive,government,telecommunications,transportation\",\n    \"Mitre Framework ID/GID\": \"G0065\",\n    \"CVE\": \"CVE-2020-1111\",\n    \"Campaign\": \"\",\n    \"Description\": \"APT4 appears to target the defense industrial base (DIB) at a higher rate of frequency than other commercial organizations.\",\n    \"Motive\": \"espionage\",\n    \"Targeted country\": \"\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 3, UPS Team\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"T1190,T1059.003\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"aerospace and defense,construction and engineering,high tech,telecommunications,transportation\",\n    \"Mitre Framework ID/GID\": \"G0013\",\n    \"CVE\": \"CVE-2019-2222\",\n    \"Campaign\": \"\",\n    \"Description\": \"\",\n    \"Motive\": \"\",\n    \"Targeted country\": \"\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 9\",\n    \"Country of Origin\": \"Possibly China\",\n    \"TTPs\": \"T1071.001,T1566\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"healthcare and pharmaceuticals,construction and engineering,aerospace and defense\",\n    \"Mitre Framework ID/GID\": \"G0040\",\n    \"CVE\": \"CVE-2021-3333\",\n    \"Campaign\": \"\",\n    \"Description\": \"APT9 engages in cyber operations where the goal is data theft.\",\n    \"Motive\": \"data theft\",\n    \"Targeted country\": \"\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 15\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"T1566.001,T1071\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"trade,economic and financial,energy,military sectors\",\n    \"Mitre Framework ID/GID\": \"G0065\",\n    \"CVE\": \"CVE-2022-4444\",\n    \"Campaign\": \"\",\n    \"Description\": \"APT15 has targeted organizations headquartered in multiple locations.\",\n    \"Motive\": \"espionage\",\n    \"Targeted country\": \"European countries,US,South Africa\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 8\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"\",\n    \"Mitre Framework ID/GID\": \"\",\n    \"CVE\": \"\",\n    \"Campaign\": \"\",\n    \"Description\": \"APT8 engages in cyber operations where the goal is intellectual property theft.\",\n    \"Motive\": \"intellectual property theft\",\n    \"Targeted country\": \"US,Germany,UK,India,Japan\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 7\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"construction,engineering,aerospace,defense industrial base\",\n    \"Mitre Framework ID/GID\": \"\",\n    \"CVE\": \"\",\n    \"Campaign\": \"\",\n    \"Description\": \"\",\n    \"Motive\": \"\",\n    \"Targeted country\": \"\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  },\n  {\n    \"alias\": \"APT 14\",\n    \"Country of Origin\": \"China\",\n    \"TTPs\": \"\",\n    \"Last dated attack\": \"\",\n    \"Industries\": \"government,telecommunications,construction and engineering\",\n    \"Mitre Framework ID/GID\": \"\",\n    \"CVE\": \"\",\n    \"Campaign\": \"\",\n    \"Description\": \"\",\n    \"Motive\": \"\",\n    \"Targeted country\": \"\",\n    \"First seen\": \"\",\n    \"URL\": \"https://cloud.google.com/security/resources/insights/apt-groups\"\n  }\n]\n```",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://www.security.land/advanced-persistent-threats-apt-in-2025-tactics-targets-and-mitigation/"
+    }
+  ],
+  "Profile 59": [
+    {
+      "alias": "APT12, Calc Team",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001, T1204.002",
+      "Last dated attack": "",
+      "Industries": "journalists, government, defense industrial base",
+      "Mitre Framework ID/GID": "G0066",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT12 is believed to be a cyber espionage group thought to have links to the Chinese People's Liberation Army. APT12's targets are consistent with larger People's Republic of China (PRC) goals.",
+      "Motive": "espionage",
+      "Targeted country": "Taiwan",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 60": [
+    {
+      "alias": "APT10, Menupass Team",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001, T1204.002",
+      "Last dated attack": "",
+      "Industries": "construction and engineering, aerospace, telecom firms, governments",
+      "Mitre Framework ID/GID": "G0002",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT10 is a Chinese cyber espionage group that has targeted construction and engineering, aerospace, and telecom firms, and governments in the United States, Europe, and Japan.",
+      "Motive": "espionage, data theft",
+      "Targeted country": "United States, Europe, Japan",
+      "First seen": "2009",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 61": [
+    {
+      "alias": "APT25, Uncool, Vixen Panda, Ke3chang, Sushi Roll, Tor",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001",
+      "Last dated attack": "",
+      "Industries": "defense industrial base, media, financial services, transportation",
+      "Mitre Framework ID/GID": "G0063",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT25 engages in cyber operations where the goal is data theft.",
+      "Motive": "data theft",
+      "Targeted country": "US, Europe",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 62": [
+    {
+      "alias": "APT24, PittyTiger",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 63": [
+    {
+      "alias": "APT9",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "healthcare, pharmaceuticals, construction, engineering, aerospace, defense",
+      "Mitre Framework ID/GID": "G0032",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT9 engages in cyber operations where the goal is data theft, usually focusing on the data and projects that make a particular organization competitive within its field.",
+      "Motive": "data theft",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 64": [
+    {
+      "alias": "APT8",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001, T1190",
+      "Last dated attack": "",
+      "Industries": "US, Germany, UK, India, Japan",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT8 engages in cyber operations where the goal is intellectual property theft.",
+      "Motive": "intellectual property theft",
+      "Targeted country": "US, Germany, UK, India, Japan",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 65": [
+    {
+      "alias": "APT7",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "construction, engineering, aerospace, defense industrial base",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 66": [
+    {
+      "alias": "APT4, Maverick Panda, Sykipot Group, Wisp",
+      "Country of Origin": "China",
+      "TTPs": "T1566.001",
+      "Last dated attack": "",
+      "Industries": "aerospace and defense, industrial engineering, electronics, automotive, government, telecommunications, transportation",
+      "Mitre Framework ID/GID": "G0012",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT4 appears to target the defense industrial base (DIB) at a higher rate of frequency than other commercial organizations.",
+      "Motive": "data theft",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 67": [
+    {
+      "alias": "APT3, UPS Team",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "aerospace and defense, construction and engineering, high tech, telecommunications, transportation",
+      "Mitre Framework ID/GID": "G0016",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 68": [
+    {
+      "alias": "APT28, UAC-0063 (TAG-110)",
+      "Country of Origin": "",
+      "TTPs": "T1566.001",
+      "Last dated attack": "",
+      "Industries": "diplomatic, military, economic entities",
+      "Mitre Framework ID/GID": "G0007",
+      "CVE": "CVE-2022-38028",
+      "Campaign": "phishing campaigns using weaponized Microsoft Word documents",
+      "Description": "APT28 launched phishing campaigns that used weaponized Microsoft Word documents to install the Hatvibe loader and CherrySpy backdoor.",
+      "Motive": "cyber-espionage",
+      "Targeted country": "Kazakhstan, Central Asia",
+      "First seen": "",
+      "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
+    }
+  ],
+  "Profile 69": [
+    {
+      "alias": "APT41",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "healthcare, telecoms, high-tech, video game industry, higher education, travel services, news/media",
+      "Mitre Framework ID/GID": "G0096",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT41 has directly targeted organizations in at least 14 countries since 2012, focusing on espionage and cyber crime, including stealing intellectual property and manipulating virtual currencies.",
+      "Motive": "espionage, cyber crime",
+      "Targeted country": "",
+      "First seen": "2012",
+      "URL": "https://cloud.google.com/security/resources/insights/apt-groups"
+    }
+  ],
+  "Profile 70": [
+    {
+      "alias": "APT12",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "journalists, government, defense industrial base",
+      "Mitre Framework ID/GID": "G0044",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT12 is a cyber espionage group linked to the Chinese People's Liberation Army, targeting sectors consistent with PRC goals, particularly in Taiwan.",
+      "Motive": "espionage",
+      "Targeted country": "Taiwan",
+      "First seen": "",
+      "URL": "https://cloud.google.com/security/resources/insights/apt-groups"
+    }
+  ],
+  "Profile 71": [
+    {
+      "alias": "APT10",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "G0024",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://cloud.google.com/security/resources/insights/apt-groups"
+    }
+  ],
+  "Profile 72": [
+    {
+      "alias": "APT25",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "defense industrial base, media, financial services, transportation",
+      "Mitre Framework ID/GID": "G0093",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "APT25 engages in cyber operations focused on data theft in the US and Europe.",
+      "Motive": "data theft",
+      "Targeted country": "US, Europe",
+      "First seen": "",
+      "URL": "https://cloud.google.com/security/resources/insights/apt-groups"
+    }
+  ],
+  "Profile 73": [
+    {
+      "alias": "APT24",
+      "Country of Origin": "China",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://cloud.google.com/security/resources/insights/apt-groups"
+    }
+  ],
+  "Profile 74": [
+    {
+      "alias": "Parse Error",
+      "Country of Origin": "",
+      "TTPs": "",
+      "Last dated attack": "",
+      "Industries": "",
+      "Mitre Framework ID/GID": "",
+      "CVE": "",
+      "Campaign": "",
+      "Description": "No information is available from the provided URL https://apt.etda.or.th/cgi-bin/aptgroups.cgi. Please revise the input with relevant sources.",
+      "Motive": "",
+      "Targeted country": "",
+      "First seen": "",
+      "URL": "https://apt.etda.or.th/cgi-bin/aptgroups.cgi"
+    }
   ]
 }

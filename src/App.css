@@ -1,20 +1,27 @@
 .page-container {
   background-color: #0E1517;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
-  gap: 20px; /* spacing between elements */
-  padding: 20px;
+  padding: 0;
+  margin: 0;
 }
 
-.page-container h1 {
-  font-size: 3.2rem;
+.alt-banner {
+  background: linear-gradient(135deg, #1d0000 0%, #241601 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+h1 {
+  font-size: 3.6rem !important;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
   font-family: impact;
   font-weight: 500;
-  color: #A6C0C9;
+  color: white !important;
 }
 
 .page-container h3 {

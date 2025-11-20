@@ -1,285 +1,91 @@
-/* Card (Base Style for Collapsed View) */
+/* Card (Base Style - Now Compact) */
 .threat-card {
-  border-radius: 16px;
-  border: 5px solid #4E727E;
-  width: 220px; /* REDUCED WIDTH */
-  min-height: 450px; /* REDUCED HEIGHT */
-  padding: 24px;
-  margin: 20px 10px; 
+  border-radius: 12px;
+  border: 0;
+  min-height: 200px;
+  max-height: 250px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  font-family: poppins, sans-serif;
-  font-weight: bolder;
+  font-family: monospace;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
-  cursor: pointer; /* Indicates the card is clickable */
-  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* --- Expanded Card Styles (Full-Width Inline) --- */
-
-.threat-card-expanded {
-    /* This width ensures it fills the new expanded-layout parent */
-    width: 100%; 
-    display: block; 
-    margin: 20px 0; /* Changed margin to 0 for sides, let the parent handle width */
-    background-color: #fff;
-    border-radius: 16px;
-    border: 5px solid; /* Uses dynamic color set by JS */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
-    transition: all 0.5s ease-in-out; /* Smooth transition for expansion */
-}
-
-.expanded-header {
-    background-color: #f7f7f7;
-    padding: 15px 25px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    cursor: pointer; /* Indicates this is the collapse click area */
-    border-bottom: 1px solid #ddd;
-}
-
-.expanded-title {
-    font-size: 1.8rem;
-    color: #333;
-    text-align: left;
-}
-
-/* This flex container separates the profile info (left) and sidebar (right) */
-.expanded-content {
-    display: flex;
-    min-height: 500px; 
-    padding: 25px;
-    background-color: #fcf0f0; /* Light background for the content area */
-}
-
-/* Left Panel: Profile Info */
-.expanded-info-panel {
-    flex: 3; /* Takes up larger portion (e.g., 65-75%) */
-    padding-right: 30px;
-    border-right: 1px solid #ddd;
-}
-
-.full-info-list {
-    text-align: left;
-    gap: 12px;
-}
-
-.full-field {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.full-field label {
-    font-size: 0.9rem;
-    min-width: 150px;
-    text-align: left;
-    font-weight: bold;
-    color: #333;
-}
-
-.full-field span {
-    font-size: 0.9rem;
-    text-align: left;
-    font-weight: normal;
-    color: #555;
-    max-height: none; 
-    overflow: visible;
-}
-
-/* Right Panel: Attachments/Notes */
-.expanded-sidebar {
-    flex: 1; /* Takes up smaller portion (e.g., 25-35%) */
-    padding-left: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-
-.expanded-sidebar h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-    color: #CC0000;
-}
-
-.note-area {
-    width: 100%;
-    min-height: 150px;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    resize: vertical;
-    margin-bottom: 15px;
-}
-
-.upload-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
-    justify-content: center;
-}
-
-.save-note-btn {
-    background-color: #CC0000;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.save-note-btn:hover {
-    background-color: #990000;
-}
-
-/* --- Original Styles (Preserved) --- */
-
-.card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-bottom: 16px;
-}
-
-/* Hover effect */
 .threat-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Alternating Colors */
+/* Color Themes */
 .threat-card.color-0 {
-  background-color: #CC0000;
-  border-color: #3D0000;
-  color: #290000;
+  border-top: 4px solid #CC0000;
+  background-color: #3D0000;
 }
 
 .threat-card.color-0:hover {
-  background-color: #e77786;
+  box-shadow: 0 15px 40px rgba(204, 0, 0, 0.3);
+  border-top-color: #FF0000;
+}
+
+.threat-card.color-0 .card-title {
+  color: #3D0000;
 }
 
 .threat-card.color-1 {
-  background-color: #4e727e;
-  border-color: #1f2E33;
-  color: #101719;
+  border-top: 4px solid #007c7c;
+  background-color: #004d4d;
 }
+
 .threat-card.color-1:hover {
-  background-color: #85FFF9;
+  box-shadow: 0 15px 40px rgba(0, 77, 77, 0.3);
+  border-top-color: #00bdbd;
+}
+
+.threat-card.color-1 .card-title {
+  color: #1f2E33;
 }
 
 .threat-card.color-2 {
-  background-color: #F9CE4E;
-  border-color: #F9CE4E;
+  border-top: 4px solid #ae7100;
+  background-color: #845001;
+}
+
+.threat-card.color-2:hover {
+  box-shadow: 0 15px 40px rgba(122, 79, 0, 0.3);
+  border-top-color: #e49400;
+}
+
+.threat-card.color-2 .card-title {
   color: #624B04;
 }
-.threat-card.color-2:hover {
-  background-color: #FBE49D;
-}
 
-/* Title - Responsive and dynamic color */
+/* Card Content */
 .card-title {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* INCREASED FONT SIZE */
-  font-weight: bold;
-  margin-bottom: 12px;
-  text-align: center;
-  white-space: normal;
+  font-size: 1.1rem;
+  font-weight: 700;
   word-wrap: break-word;
-  overflow-wrap: anywhere;
+  line-height: 1.3;
 }
 
-/* Dynamic title colors */
-.threat-card.color-0 .card-title {
-  color: #3D0000; 
-}
-.threat-card.color-1 .card-title {
-  color: #004d4d; 
-}
-.threat-card.color-2 .card-title {
-  color: #7a4f00; 
-}
-
-/* Divider */
-.divider {
-  border-top: 1px solid #000;
-  margin: 8px 0;
-}
-
-/* Fields container */
-.card-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: clamp(0.65rem, 1vw, 0.8rem);
-  text-align: center;
-}
-
-/* Field labels and values (Increased Font Sizes) */
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px; 
-}
-
-.field label {
-  font-weight: bold;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* INCREASED FONT SIZE */
-  text-align: center;
-  display: block;
-  word-break: break-word;
-}
-
-.field span {
-  font-size: clamp(0.8rem, 1.3vw, 1rem); /* INCREASED FONT SIZE */
-  text-align: center;
-  display: block;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-/* Optional: Truncate very long text */
-.field span {
-  max-height: 4.5em; /* Adjusted max height for larger font */
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* File/Image Upload (re-used styles) */
-.file-input {
-  display: none;
-}
-
-.upload-btn {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
+.card-info {
   font-size: 0.85rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.upload-btn:hover {
-  background-color: #333;
+.info-row small {
+  line-height: 1.4;
 }
 
-.image-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.image-preview img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 6px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .threat-card {
+    min-height: 180px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
 }
