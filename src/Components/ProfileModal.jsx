@@ -104,7 +104,7 @@ const renderFieldValue = (key, value) => {
     >
       <Modal.Header closeButton className={`modal-header-custom ${colorClass}`}>
         <Modal.Title>
-          {profile.alias || 'UNKNOWN THREAT ACTOR'} - Full Profile
+          {profile.primary_name || 'UNKNOWN THREAT ACTOR'} - Full Profile
         </Modal.Title>
       </Modal.Header>
       
@@ -114,7 +114,7 @@ const renderFieldValue = (key, value) => {
           <div className="col-lg-8 col-md-7">
             <div className="profile-info-section">
               {Object.keys(profile).map((key, i) => 
-                hasValue(profile[key]) && key !== 'profileKey' && (
+                hasValue(profile[key]) && key !== 'primary_name' && key !== 'profileKey' && (
                   <div className="row mb-3 profile-field" key={i}>
                     <div className="col-sm-4 fw-bold text-start">{key}:</div>
                     <div className="col-sm-8 text-start text-muted">

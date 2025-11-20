@@ -15,7 +15,7 @@ const ProfileCard = ({ profile, index, onCardClick }) => {
     >
       <div className="card-body p-3">
         <h5 className="card-title m-0 text-center">
-          {profile.alias || 'UNKNOWN THREAT ACTOR'}
+          {profile["primary_name"] || 'UNKNOWN THREAT ACTOR'}
         </h5>
 
         <hr className="my-2" />

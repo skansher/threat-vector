@@ -7,12 +7,26 @@ const AptForm = ({ formData, onChange, onSubmit }) => {
         <div className="flex-grow-1">
           <div className="mb-3">
             <label className="form-label fw-bold">
-              Alias Name <span className="text-danger">*</span>
+              Primary Name <span className="text-danger">*</span>
             </label>
             <input
               type="text"
               name="alias"
-              value={formData.alias}
+              value={formData.primary_name}
+              onChange={onChange}
+              placeholder="e.g., APT28"
+              className="form-control"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label fw-bold">
+              Additional Aliases <span className="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              name="alias"
+              value={formData.aliases}
               onChange={onChange}
               placeholder="e.g., APT28, UAC-0063"
               className="form-control"

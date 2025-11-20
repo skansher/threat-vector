@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import aptProfilesData from '../data/apt_profiles.json';
+import aptProfilesData from '../data/apt_profiles (1).json';
 import Header from "./Header.jsx";
 import Card from "../Components/ProfileCard.jsx";
 import ProfileModal from "../Components/ProfileModal.jsx";
