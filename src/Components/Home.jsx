@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSS/home.css';
 import Header from './Header.jsx';
-import aptProfileData from '../data/apt_profiles.json';
+import aptProfileData from '../data/normalized_profiles.json';
 import newsData from '../data/news.json';
 // import infiltratorData from '../data/infiltrator_profiles.json';
 
