@@ -85,26 +85,14 @@ const Home = () => {
           </Link>
         </div>
 
-        {/* <div className="col-md-3">
-          <Link to="/infiltrators" className="text-decoration-none">
-            <div className="nav-card nav-card-orange">
-              <div className="nav-card-icon">
-                <i className="fas fa-users fa-icon"></i>
-              </div>
-              <h5 className="nav-card-title">Infiltrators</h5>
-              <p className="nav-card-text">IT infiltrator management system</p>
-            </div>
-          </Link>
-        </div> */}
-
         <div className="col-md-4">
-          <Link to="/createProfile" className="text-decoration-none">
+          <Link to="/researchChat" className="text-decoration-none">
             <div className="nav-card nav-card-purple">
               <div className="nav-card-icon">
-                <i class="far fa-file-alt fa-icon"></i>
+                <i class="far fa-comments fa-icon"></i>
               </div>
-              <h5 className="nav-card-title">Data Entry</h5>
-              <p className="nav-card-text">Submit new intelligence data</p>
+              <h5 className="nav-card-title">AI Chat</h5>
+              <p className="nav-card-text">Interactive, generative research</p>
             </div>
           </Link>
         </div>

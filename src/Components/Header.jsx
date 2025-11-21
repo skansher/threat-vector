@@ -55,22 +55,13 @@ const Header = () => {
                                 Threat Profiles
                             </Link>
                         </li>
-                        {/* <li className="nav-item">
-                            <Link 
-                                to="/infiltrators" 
-                                className={`nav-link header-element ${isActive('/infiltrators') ? 'active' : ''}`}
-                                onClick={() => setIsNavCollapsed(true)}
-                            >
-                                IT Infiltrators
-                            </Link>
-                        </li> */}
                         <li className="nav-item">
                             <Link 
-                                to="/createProfile" 
-                                className={`nav-link header-element ${isActive('/createProfile') ? 'active' : ''}`}
+                                to="/researchChat" 
+                                className={`nav-link header-element ${isActive('/researchChat') ? 'active' : ''}`}
                                 onClick={() => setIsNavCollapsed(true)}
                             >
-                                Create Profiles
+                                Research Chat
                             </Link>
                         </li>
                     </ul>

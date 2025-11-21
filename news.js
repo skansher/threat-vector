@@ -101,7 +101,15 @@ async function run() {
       "https://abcnews.go.com/Technology/wireStory/microsoft-russia-china-increasingly-ai-escalate-cyberattacks-us-126581796",
       "https://thehackernews.com/2025/10/apt36-targets-indian-government-with.html",
       "https://www.nbcnews.com/tech/security/microsoft-sharepoint-vulnerability-targeted-chinese-hackers-rcna220270",
-      "https://www.npr.org/2025/10/20/nx-s1-5580312/aws-outage"
+      "https://www.npr.org/2025/10/20/nx-s1-5580312/aws-outage",
+      "https://www.npr.org/2025/09/20/g-s1-89727/cyberattack-european-airports",
+      "https://www.securityweek.com/chinese-apt-exploits-unpatched-windows-flaw-in-recent-attacks/",
+      "https://www.infosecurity-magazine.com/news/android-devices-targeted-konni-apt/",
+      "https://www.infosecurity-magazine.com/news/russian-sandworm-new-wiper-ukraine/",
+      "https://www.securityweek.com/chinese-apt-uses-airstalk-malware-in-supply-chain-attacks/",
+      "https://thehackernews.com/2025/08/salt-typhoon-exploits-cisco-ivanti-palo.html",
+      "https://www.cbsnews.com/news/anthropic-chinese-cyberattack-artificial-intelligence/",
+      "https://www.abc.net.au/news/2025-11-19/defence-cyber-attacks-adf-military-projects-redback-hackers/105999222"
     ];
 
     const allArticles = {};

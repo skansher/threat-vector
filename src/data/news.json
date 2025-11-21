@@ -2,9 +2,9 @@
   "article 1": [
     {
       "Article Name": "US company with access to biggest telecom firms uncovers breach by nation-state hackers",
-      "Published Date": "October 29, 2025 9:59 PM UTC",
+      "Published Date": "2025-10-29",
       "News Channel": "Reuters",
-      "Summary": "Ribbon Communications, a Texas-based company, discovered a nation-state hacking breach in its IT network in early September 2025, with initial access dating back to December 2024. The breach affected three smaller customers, but no material information was accessed. Ribbon has taken steps to harden its network to prevent future incidents.",
+      "Summary": "Ribbon Communications, a US telecommunications services company, was breached by nation-state hackers in December 2024. The hackers remained undetected for nearly a year. Three customers were impacted according to the ongoing investigation.",
       "URL": "https://www.reuters.com/business/media-telecom/us-company-with-access-biggest-telecom-firms-uncovers-breach-by-nation-state-2025-10-29/"
     }
   ],
@@ -13,7 +13,7 @@
       "Article Name": "Cybersecurity order warns of \"imminent risk\" to federal agencies following possible breach",
       "Published Date": "Not specified",
       "News Channel": "CBS News",
-      "Summary": "The Cybersecurity and Infrastructure Security Agency issued an emergency order directing federal agencies to patch critical vulnerabilities in F5 devices and software after a nation-state cyber actor gained unauthorized access to F5's source code. The theft is significant as it potentially facilitates rapid exploitation of vulnerabilities, including undisclosed ones that F5 was actively working to patch.",
+      "Summary": "The Cybersecurity and Infrastructure Security Agency issued an emergency order directing federal agencies to patch critical vulnerabilities in F5 devices and software after a nation-state cyber actor gained unauthorized access to F5's source code. The theft of F5 BIG-IP source code is significant as it potentially facilitates rapid exploitation of vulnerabilities. Unit 42 Chief Technology Officer Michael Sikorski stated that the theft of source code and information on undisclosed vulnerabilities could increase the speed to exploit creation.",
       "URL": "https://www.cbsnews.com/news/f5-source-code-cybersecurity-infrastructure-security-agency-emergency-order/"
     }
   ],
@@ -22,16 +22,16 @@
       "Article Name": "Google: Over 57 Nation-State Threat Groups Using AI for Cyber Operations",
       "Published Date": "Jan 30, 2025",
       "News Channel": "The Hacker News",
-      "Summary": "Google reported that over 57 distinct threat actors with ties to China, Iran, North Korea, and Russia have used AI technology to further their malicious cyber and information operations. Threat actors are using AI for research, troubleshooting code, and creating content, but not yet developing novel capabilities. Google is actively deploying defenses to counter prompt injection attacks and emphasizes the need for public-private collaboration to raise cyber defenses.",
+      "Summary": "Google reported that over 57 distinct threat actors tied to China, Iran, North Korea, and Russia have used AI technology to further their malicious cyber operations. Google is deploying defenses against prompt injection attacks and emphasizes the need for public-private collaboration to raise cyber defenses.",
       "URL": "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html"
     }
   ],
   "article 4": [
     {
-      "Article Name": "Russia, China increasingly using AI to escalate cyberattacks on US, Microsoft finds",
-      "Published Date": "No specific date available in the given context",
+      "Article Name": "Microsoft: Russia, China increasingly use AI to escalate cyberattacks on US",
+      "Published Date": "Not Available",
       "News Channel": "ABC News",
-      "Summary": "Microsoft found that Russia and China are increasingly using AI to escalate cyberattacks on the US. North Korea has used AI personas to create American identities for remote tech jobs, allowing them to steal secrets or install malware. The article highlights the growing threat of nation-state actors using AI in cyber operations.",
+      "Summary": "The article discusses how Russia and China are increasingly using AI to escalate cyberattacks on the US, according to Microsoft. Key points include the growing threat of nation-state cyberattacks and the role of AI in enhancing these attacks.",
       "URL": "https://abcnews.go.com/Technology/wireStory/microsoft-russia-china-increasingly-ai-escalate-cyberattacks-us-126581796"
     }
   ],
@@ -40,16 +40,16 @@
       "Article Name": "APT36 Targets Indian Government with Golang-Based DeskRAT Malware Campaign",
       "Published Date": "Oct 24, 2025",
       "News Channel": "The Hacker News",
-      "Summary": "APT36, a Pakistan-nexus threat actor, targeted Indian government entities with spear-phishing attacks delivering Golang-based DeskRAT malware. The campaign involved ZIP file attachments or links to archives on cloud services like Google Drive, executing a malicious Desktop file that displayed a decoy PDF while running the main payload.",
+      "Summary": "A Pakistan-nexus threat actor, known as APT36, has been observed targeting Indian government entities with spear-phishing attacks to deliver a Golang-based malware called DeskRAT.",
       "URL": "https://thehackernews.com/2025/10/apt36-targets-indian-government-with.html"
     }
   ],
   "article 6": [
     {
-      "Article Name": "Microsoft: SharePoint vulnerability targeted by Chinese hackers",
-      "Published Date": "Not specified",
+      "Article Name": "Microsoft SharePoint Vulnerability Targeted by Chinese Hackers",
+      "Published Date": "Not Available",
       "News Channel": "NBC News",
-      "Summary": "A critical flaw in Microsoft's SharePoint platform has been targeted by hackers, including those working for the Chinese government. Multiple government agencies worldwide have been hacked, with the identities of the victims still not public. Charles Carmakal, the chief technology officer at Mandiant, Google's cloud security service, stated that the number of hacked organizations is increasing.",
+      "Summary": "The article discusses a Microsoft SharePoint vulnerability exploited by Chinese hackers. Although the exact date is not available, the article highlights the vulnerability and its exploitation.",
       "URL": "https://www.nbcnews.com/tech/security/microsoft-sharepoint-vulnerability-targeted-chinese-hackers-rcna220270"
     }
   ],
@@ -58,8 +58,71 @@
       "Article Name": "Outage at Amazon Web Services disrupts websites across the internet",
       "Published Date": "October 20, 2025",
       "News Channel": "NPR",
-      "Summary": "Amazon Web Services experienced an outage that disrupted major websites across the internet. The outage started around 3 a.m. ET on Monday, with increased error rates and latencies reported in its Northern Virginia facility.",
+      "Summary": "Amazon Web Services experienced an outage disrupting major websites across the internet. Amazon's cloud computing service provides back-end support to many online companies.",
       "URL": "https://www.npr.org/2025/10/20/nx-s1-5580312/aws-outage"
+    }
+  ],
+  "article 9": [
+    {
+      "Article Name": "Chinese APT Exploits Unpatched Windows Flaw in Recent Attacks",
+      "Published Date": "",
+      "News Channel": "SecurityWeek",
+      "Summary": "A Chinese Advanced Persistent Threat (APT) group has been exploiting an unpatched Windows flaw in recent attacks. Microsoft Defender can detect the use of this technique in LNK files. The tech giant warned users to exercise caution when opening files from the internet or untrusted sources. Eleven state-sponsored APT groups from North Korea, Russia, China, and Iran have been abusing specially crafted LNK files in attacks targeting various sectors.",
+      "URL": "https://www.securityweek.com/chinese-apt-exploits-unpatched-windows-flaw-in-recent-attacks/"
+    }
+  ],
+  "article 10": [
+    {
+      "Article Name": "Android Devices Targeted by KONNI APT in Find Hub Exploitation",
+      "Published Date": "Not Available",
+      "News Channel": "Infosecurity Magazine",
+      "Summary": "The KONNI APT group, associated with North Korea's Kimsuky and APT37 groups, has been observed exploiting Google's 'Find Hub' service to remotely wipe data from Android devices.",
+      "URL": "https://www.infosecurity-magazine.com/news/android-devices-targeted-konni-apt/"
+    }
+  ],
+  "article 11": [
+    {
+      "Article Name": "Russian Hacking Group Sandworm Deploys New Wiper Malware in Ukraine",
+      "Published Date": "Not explicitly stated, but referenced report was published on November 6, 2025",
+      "News Channel": "Infosecurity Magazine",
+      "Summary": "The Russian-backed hacking group Sandworm deployed data wiper malware in Ukraine during Q2 and Q3 2025. Targets included governmental entities, energy, logistics, and grain sectors. ESET assessed the objective was to weaken the Ukrainian economy. Sandworm used wipers like Zerolot and Sting.",
+      "URL": "https://www.infosecurity-magazine.com/news/russian-sandworm-new-wiper-ukraine/"
+    }
+  ],
+  "article 12": [
+    {
+      "Article Name": "Chinese APT Uses 'Airstalk' Malware in Supply Chain Attacks",
+      "Published Date": "Not Available",
+      "News Channel": "SecurityWeek",
+      "Summary": "A Chinese state-sponsored APT group, tracked as CL-STA-1009, has been using 'Airstalk' malware in supply chain attacks targeting business process outsourcing (BPO) entities. The malware abuses AirWatch's MDM API to establish a C&C communication channel and has variants written in PowerShell and .NET. The malware can steal browser data, take screenshots, and execute other malicious activities.",
+      "URL": "https://www.securityweek.com/chinese-apt-uses-airstalk-malware-in-supply-chain-attacks/"
+    }
+  ],
+  "article 13": [
+    {
+      "Article Name": "Salt Typhoon Exploits Flaws in Edge Network Devices to Breach 600 Organizations Worldwide",
+      "Published Date": "Aug 28, 2025",
+      "News Channel": "The Hacker News",
+      "Summary": "The China-linked APT actor Salt Typhoon has breached 600 organizations worldwide by exploiting flaws in edge network devices from Cisco, Ivanti, and Palo Alto Networks. Salt Typhoon overlaps with activity tracked as GhostEmperor, Operator Panda, RedMike, and UNC5807. The group targeted telecommunications, government, transportation, lodging, and military infrastructure sectors.",
+      "URL": "https://thehackernews.com/2025/08/salt-typhoon-exploits-cisco-ivanti-palo.html"
+    }
+  ],
+  "article 14": [
+    {
+      "Article Name": "Anthropic says Chinese hackers used its Claude AI chatbot in cyberattacks - CBS News",
+      "Published Date": "",
+      "News Channel": "CBS News",
+      "Summary": "Anthropic detected suspicious activity in mid-September, which was later identified as an espionage campaign likely carried out by a state-sponsored group based in China. The company believes this is the first cyberespionage operation largely carried out using AI.",
+      "URL": "https://www.cbsnews.com/news/anthropic-chinese-cyberattack-artificial-intelligence/"
+    }
+  ],
+  "article 15": [
+    {
+      "Article Name": "Australia's weapons programs exposed in defence industry cyber attacks",
+      "Published Date": "2025-11-19",
+      "News Channel": "ABC News",
+      "Summary": "A series of cyber attacks on defence supply chain contractors has compromised material relating to Australia's weapons programs, including the $7 billion Redback infantry fighting vehicle contract. Cybersecurity analysts warn that non-sensitive data can have strategic value and be used to build credible approaches to higher-tier targets. The Australian Cyber Security Centre, Australian Federal Police, and Defence Industry Security Program have been notified.",
+      "URL": "https://www.abc.net.au/news/2025-11-19/defence-cyber-attacks-adf-military-projects-redback-hackers/105999222"
     }
   ]
 }

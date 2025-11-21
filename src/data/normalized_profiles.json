@@ -610,18 +610,11 @@
       ],
       "Targeted country": [],
       "First seen": null,
-      "URL": [
-        [
-          [
-            [
-              "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/",
-              "https://cloud.google.com/security/resources/insights/apt-groups"
-            ],
-            "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/"
-          ],
-          "https://cloud.google.com/security/resources/insights/apt-groups"
-        ],
-        "https://www.kelacyber.com/blog/espionage-exposed-inside-a-north-korean-remote-worker-network/"
+      "URL": ["https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/",
+              "https://cloud.google.com/security/resources/insights/apt-groups",
+              "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/",
+              "https://cloud.google.com/security/resources/insights/apt-groups",
+              "https://www.kelacyber.com/blog/espionage-exposed-inside-a-north-korean-remote-worker-network/"
       ]
     }
   ],
