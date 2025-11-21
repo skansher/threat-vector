@@ -5,7 +5,16 @@ const ProfileCard = ({ profile, index, onCardClick }) => {
   const colorClass = `color-${index % 3}`;
 
   const hasValue = (value) => {
-    return value && value.trim() !== "" && value !== "N/A";
+    if (!value) return false;
+    if (Array.isArray(value)) return value.length > 0;
+    if (typeof value === 'string') return value.trim() !== "" && value !== "N/A";
+    return true;
+  };
+
+  const formatValue = (value) => {
+    if (!value) return '';
+    if (Array.isArray(value)) return value.join(', ');
+    return String(value);
   };
 
   return (
@@ -21,31 +30,31 @@ const ProfileCard = ({ profile, index, onCardClick }) => {
         <hr className="my-2" />
 
         <div className="card-info">
-            {hasValue(profile["Industries"]) && (
+          {hasValue(profile["Industries"]) && (
             <div className="info-row mb-2">
               <small className="fw-bold d-block">Industries:</small>
-              <small className="text-truncate d-block">{profile["Industries"]}</small>
+              <small className="text-truncate d-block">{formatValue(profile["Industries"])}</small>
             </div>
           )}
 
           {hasValue(profile["Targeted country"]) && (
             <div className="info-row mb-2">
               <small className="fw-bold d-block">Target:</small>
-              <small className="text-truncate d-block">{profile["Targeted country"]}</small>
+              <small className="text-truncate d-block">{formatValue(profile["Targeted country"])}</small>
             </div>
           )}
 
           {hasValue(profile["Country of Origin"]) && (
             <div className="info-row mb-2">
               <small className="fw-bold d-block">Origin:</small>
-              <small className="text-truncate d-block">{profile["Country of Origin"]}</small>
+              <small className="text-truncate d-block">{formatValue(profile["Country of Origin"])}</small>
             </div>
           )}
           
           {hasValue(profile.Campaign) && (
             <div className="info-row mb-2">
               <small className="fw-bold d-block">Campaign:</small>
-              <small className="text-truncate d-block">{profile.Campaign}</small>
+              <small className="text-truncate d-block">{formatValue(profile.Campaign)}</small>
             </div>
           )}
         </div>

@@ -1,24 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import aptProfilesData from '../data/apt_profiles (1).json';
+import React, { useState, useEffect, useMemo } from 'react';
+import aptProfilesData from '../data/normalized_profiles.json';
 import Header from "./Header.jsx";
 import Card from "../Components/ProfileCard.jsx";
 import ProfileModal from "../Components/ProfileModal.jsx";
 import '../CSS/profile.css';
 import '../CSS/profilecard.css';
 
+// Utility function to normalize values to array of strings
+// Defined outside component to avoid recreation on every render
+const toArray = (value) => {
+  if (!value) return [];
+  
+  if (Array.isArray(value)) {
+    return value
+      .flat()
+      .filter(v => v != null && v !== '')
+      .map(v => String(v).trim())
+      .filter(v => v !== '');
+  }
+  
+  if (typeof value === 'string') {
+    return value
+      .split(',')
+      .map(v => v.trim())
+      .filter(v => v !== '');
+  }
+  
+  return [String(value).trim()].filter(v => v !== '');
+};
+
 const Profile = () => {
   const [profiles, setProfiles] = useState([]);
-  const [filteredProfiles, setFilteredProfiles] = useState([]);
   const [filters, setFilters] = useState({
     industry: "",
     countryTarget: "",
     countryOrigin: "",
     ttps: ""
   });
-  const [industryOptions, setIndustryOptions] = useState([]);
-  const [countryTargetOptions, setcountryTargetOptions] = useState([]);
-  const [countryOriginOptions, setcountryOriginOptions] = useState([]);
-  const [ttpsOptions, setTTPsOptions] = useState([]);
   
   // Modal state
   const [showModal, setShowModal] = useState(false);
@@ -40,74 +58,90 @@ const Profile = () => {
     setShowModal(true);
   };
 
+  // Load profiles once on mount
   useEffect(() => {
-    const profilesArray = Object.entries(aptProfilesData).map(([key, value]) => ({
-      profileKey: key,
-      ...value[0],
-    }))
-    .filter(profile => profile.alias !== "Parse Error"); 
+    const profilesArray = Object.entries(aptProfilesData)
+      .map(([key, value]) => ({
+        profileKey: key,
+        ...value[0],
+      }))
+      .filter(profile => profile.alias !== "Parse Error"); 
+    
     setProfiles(profilesArray);
-    setFilteredProfiles(profilesArray);
+  }, []);
+
+  // Extract filter options using useMemo for performance
+  const filterOptions = useMemo(() => {
+    if (profiles.length === 0) {
+      return {
+        industries: [],
+        countriesTargeted: [],
+        countriesOrigin: [],
+        ttps: []
+      };
+    }
 
     const industries = Array.from(
-      new Set(profilesArray.flatMap(p => 
-        p.Industries ? p.Industries.split(',').map(i => i.trim()) : []
-      ))
+      new Set(profiles.flatMap(p => toArray(p.Industries)))
     ).sort();
 
     const countriesTargeted = Array.from(
-      new Set(profilesArray.flatMap(p => 
-        p["Targeted country"] ? p["Targeted country"].split(',').map(c => c.trim()) : []
-      ))
+      new Set(profiles.flatMap(p => toArray(p["Targeted country"])))
     ).sort();
 
-    const countryOrigin = Array.from(
-      new Set(profilesArray.flatMap(p => 
-        p["Country of Origin"] ? p["Country of Origin"].split(',').map(c => c.trim()) : []
-      ))
+    const countriesOrigin = Array.from(
+      new Set(profiles.flatMap(p => toArray(p["Country of Origin"])))
     ).sort();
 
-    const TTPs = Array.from(
-      new Set(profilesArray.flatMap(p =>
-        p.TTPs ? p.TTPs.split(',').map(t => t.trim()) : []
-      ))
+    const ttps = Array.from(
+      new Set(profiles.flatMap(p => toArray(p.TTPs)))
     ).sort();
 
-    setIndustryOptions(industries);
-    setcountryTargetOptions(countriesTargeted);
-    setcountryOriginOptions(countryOrigin);
-    setTTPsOptions(TTPs);
-  }, []);
+    return {
+      industries,
+      countriesTargeted,
+      countriesOrigin,
+      ttps
+    };
+  }, [profiles]);
+
+  // Filter profiles based on selected filters
+  const filteredProfiles = useMemo(() => {
+    if (profiles.length === 0) return [];
+
+    const { industry, countryTarget, countryOrigin, ttps } = filters;
+    
+    // If no filters applied, return all profiles
+    if (!industry && !countryTarget && !countryOrigin && !ttps) {
+      return profiles;
+    }
+
+    return profiles.filter(profile => {
+      const industries = toArray(profile.Industries).map(i => i.toLowerCase());
+      const countries = toArray(profile["Targeted country"]).map(c => c.toLowerCase());
+      const origins = toArray(profile["Country of Origin"]).map(o => o.toLowerCase());
+      const profileTtps = toArray(profile.TTPs).map(t => t.toLowerCase());
+
+      const matchesIndustry = !industry || 
+        industries.some(i => i.includes(industry.toLowerCase()));
+      
+      const matchesCountryTarget = !countryTarget || 
+        countries.some(c => c.includes(countryTarget.toLowerCase()));
+      
+      const matchesCountryOrigin = !countryOrigin || 
+        origins.some(o => o.includes(countryOrigin.toLowerCase()));
+      
+      const matchesTtps = !ttps || 
+        profileTtps.some(t => t.includes(ttps.toLowerCase()));
+
+      return matchesIndustry && matchesCountryTarget && matchesCountryOrigin && matchesTtps;
+    });
+  }, [profiles, filters]);
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilters(prev => ({ ...prev, [name]: value }));
   };
-
-  useEffect(() => {
-    if (!profiles.length) return;
-
-    const { industry, countryTarget, countryOrigin, ttps } = filters;
-
-    const sorted = [...profiles].sort((a, b) => {
-      const aMatches =
-        (!industry || (a.Industries?.toLowerCase().includes(industry.toLowerCase()))) &&
-        (!countryTarget || (a["Targeted country"]?.toLowerCase().includes(countryTarget.toLowerCase()))) &&
-        (!countryOrigin || (a["Country of Origin"]?.toLowerCase().includes(countryOrigin.toLowerCase()))) &&
-        (!ttps || (a.TTPs?.toLowerCase().includes(ttps.toLowerCase())));
-      const bMatches =
-        (!industry || (b.Industries?.toLowerCase().includes(industry.toLowerCase()))) &&
-        (!countryTarget || (b["Targeted country"]?.toLowerCase().includes(countryTarget.toLowerCase()))) &&
-        (!countryOrigin || (b["Country of Origin"]?.toLowerCase().includes(countryOrigin.toLowerCase()))) &&
-        (!ttps || (b.TTPs?.toLowerCase().includes(ttps.toLowerCase())));
-
-      if (aMatches && !bMatches) return -1;
-      if (!aMatches && bMatches) return 1;
-      return 0;
-    });
-
-    setFilteredProfiles(sorted);
-  }, [filters, profiles]);
 
   return (
     <div className="page-container">
@@ -128,7 +162,7 @@ const Profile = () => {
               onChange={handleFilterChange}
             >
               <option value="">All</option>
-              {industryOptions.map((ind, idx) => (
+              {filterOptions.industries.map((ind, idx) => (
                 <option key={idx} value={ind}>{ind}</option>
               ))}
             </select>
@@ -143,7 +177,7 @@ const Profile = () => {
               onChange={handleFilterChange}
             >
               <option value="">All</option>
-              {countryTargetOptions.map((c, idx) => (
+              {filterOptions.countriesTargeted.map((c, idx) => (
                 <option key={idx} value={c}>{c}</option>
               ))}
             </select>
@@ -158,7 +192,7 @@ const Profile = () => {
               onChange={handleFilterChange}
             >
               <option value="">All</option>
-              {countryOriginOptions.map((ind, idx) => (
+              {filterOptions.countriesOrigin.map((ind, idx) => (
                 <option key={idx} value={ind}>{ind}</option>
               ))}
             </select>
@@ -173,7 +207,7 @@ const Profile = () => {
               onChange={handleFilterChange}
             >
               <option value="">All</option>
-              {ttpsOptions.map((ind, idx) => (
+              {filterOptions.ttps.map((ind, idx) => (
                 <option key={idx} value={ind}>{ind}</option>
               ))}
             </select>

@@ -5,7 +5,7 @@ import '../CSS/home.css';
 import Header from './Header.jsx';
 import aptProfileData from '../data/apt_profiles.json';
 import newsData from '../data/news.json';
-import infiltratorData from '../data/infiltrator_profiles.json';
+// import infiltratorData from '../data/infiltrator_profiles.json';
 
 const Home = () => {
   const [stats, setStats] = useState({
@@ -28,7 +28,7 @@ const Home = () => {
     }, {});
 
     // Process infiltrators
-    const infiltrators = Object.values(infiltratorData).flat();
+    // const infiltrators = Object.values(infiltratorData).flat();
 
     // Process news - filter for articles from the past month
     const oneMonthAgo = new Date();
@@ -42,7 +42,7 @@ const Home = () => {
 
     setStats({
       aptCount: aptProfiles.length,
-      infiltratorCount: infiltrators.length,
+      // infiltratorCount: infiltrators.length,
       newsCount: filteredNews.length
     });
 

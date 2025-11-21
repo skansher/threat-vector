@@ -7,6 +7,81 @@ const client = new Writer({
   apiKey: process.env.WRITER_API_KEY,
 });
 
+// Helper function to split comma-separated strings into lists
+function splitToList(value) {
+  if (!value || typeof value !== "string") {
+    return [];
+  }
+  return value.split(",").map(item => item.trim()).filter(item => item);
+}
+
+// List of countries to filter out from industries
+const COUNTRIES = new Set([
+  "afghanistan", "albania", "algeria", "andorra", "angola", "antigua and barbuda",
+  "argentina", "armenia", "australia", "austria", "azerbaijan", "bahamas", "bahrain",
+  "bangladesh", "barbados", "belarus", "belgium", "belize", "benin", "bhutan",
+  "bolivia", "bosnia and herzegovina", "botswana", "brazil", "brunei", "bulgaria",
+  "burkina faso", "burundi", "cabo verde", "cambodia", "cameroon", "canada",
+  "central african republic", "chad", "chile", "china", "colombia", "comoros",
+  "congo", "costa rica", "croatia", "cuba", "cyprus", "czech republic", "czechia",
+  "denmark", "djibouti", "dominica", "dominican republic", "ecuador", "egypt",
+  "el salvador", "equatorial guinea", "eritrea", "estonia", "eswatini", "ethiopia",
+  "fiji", "finland", "france", "gabon", "gambia", "georgia", "germany", "ghana",
+  "greece", "grenada", "guatemala", "guinea", "guinea-bissau", "guyana", "haiti",
+  "honduras", "hungary", "iceland", "india", "indonesia", "iran", "iraq", "ireland",
+  "israel", "italy", "jamaica", "japan", "jordan", "kazakhstan", "kenya", "kiribati",
+  "korea", "kosovo", "kuwait", "kyrgyzstan", "laos", "latvia", "lebanon", "lesotho",
+  "liberia", "libya", "liechtenstein", "lithuania", "luxembourg", "madagascar",
+  "malawi", "malaysia", "maldives", "mali", "malta", "marshall islands", "mauritania",
+  "mauritius", "mexico", "micronesia", "moldova", "monaco", "mongolia", "montenegro",
+  "morocco", "mozambique", "myanmar", "namibia", "nauru", "nepal", "netherlands",
+  "new zealand", "nicaragua", "niger", "nigeria", "north korea", "north macedonia",
+  "norway", "oman", "pakistan", "palau", "palestine", "panama", "papua new guinea",
+  "paraguay", "peru", "philippines", "poland", "portugal", "qatar", "romania",
+  "russia", "russian federation", "rwanda", "saint kitts and nevis", "saint lucia",
+  "saint vincent and the grenadines", "samoa", "san marino", "sao tome and principe",
+  "saudi arabia", "senegal", "serbia", "seychelles", "sierra leone", "singapore",
+  "slovakia", "slovenia", "solomon islands", "somalia", "south africa", "south korea",
+  "south sudan", "spain", "sri lanka", "sudan", "suriname", "sweden", "switzerland",
+  "syria", "taiwan", "tajikistan", "tanzania", "thailand", "timor-leste", "togo",
+  "tonga", "trinidad and tobago", "tunisia", "turkey", "turkmenistan", "tuvalu",
+  "uganda", "ukraine", "united arab emirates", "uae", "united kingdom", "uk",
+  "united states", "usa", "us", "uruguay", "uzbekistan", "vanuatu", "vatican city",
+  "venezuela", "vietnam", "yemen", "zambia", "zimbabwe",
+  // Common multi-word variations
+  "south east asia", "southeast asia", "middle east", "central asia", "eastern europe",
+  "western europe", "north america", "south america", "latin america", "central america"
+]);
+
+// Helper function to check if a string is a country name
+function isCountry(text) {
+  if (!text || typeof text !== "string") return false;
+  const normalized = text.toLowerCase().trim();
+  return COUNTRIES.has(normalized);
+}
+
+// Helper function to filter out countries from industries
+function filterIndustries(industries) {
+  if (!Array.isArray(industries)) return [];
+  return industries.filter(industry => !isCountry(industry));
+}
+
+// Helper function to combine URLs
+function combineURLs(url1, url2) {
+  if (!url1 && !url2) return null;
+  if (!url1) return url2;
+  if (!url2) return url1;
+  if (url1 === url2) return url1;
+  
+  // Return array of unique URLs
+  const urls = [url1, url2].filter(Boolean);
+  return [...new Set(urls)];
+}
+
+// ============================================
+// THREAT PROFILE GENERATION
+// ============================================
+
 async function generateAPTProfile(url) {
   const prompt = `
 Analyze the APT threat intelligence information from this URL: ${url}
@@ -54,8 +129,6 @@ Return ONLY the JSON array, nothing else.`;
       }
     );
 
-    console.log("Writer raw response:", JSON.stringify(response, null, 2));
-
     let summary = "";
     if (response.suggestion) {
       summary = response.suggestion;
@@ -69,10 +142,8 @@ Return ONLY the JSON array, nothing else.`;
       summary = JSON.stringify(response);
     }
 
-    // Try to extract JSON from the response
     let profileData;
     try {
-      // Remove markdown code blocks if present
       const cleanedSummary = summary
         .replace(/```json\n?/g, "")
         .replace(/```\n?/g, "")
@@ -80,7 +151,6 @@ Return ONLY the JSON array, nothing else.`;
       
       profileData = JSON.parse(cleanedSummary);
       
-      // Ensure it's an array
       if (!Array.isArray(profileData)) {
         profileData = [profileData];
       }
@@ -124,19 +194,8 @@ Return ONLY the JSON array, nothing else.`;
   }
 }
 
-async function run() {
+export async function generateThreatProfiles(urls) {
   try {
-    const urls = [
-      "https://socradar.io/top-10-advanced-persistent-threat-apt-groups-2024/",
-      "https://www.cisa.gov/news-events/cybersecurity-advisories",
-      "https://www.socinvestigation.com/comprehensive-list-of-apt-threat-groups-motives-and-attack-methods/",
-      "https://www.security.land/advanced-persistent-threats-apt-in-2025-tactics-targets-and-mitigation/",
-      "https://thehackernews.com/2025/01/google-over-57-nation-state-threat.html",
-      "https://cloud.google.com/security/resources/insights/apt-groups",
-      "https://apt.etda.or.th/cgi-bin/aptgroups.cgi"
-    ];
-
-    // Ensure the directory exists
     const dir = "src/data";
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
@@ -144,7 +203,6 @@ async function run() {
 
     const filePath = "src/data/apt_profiles.json";
     
-    // Load existing profiles or start with empty object
     let allProfiles = {};
     let profileCounter = 1;
     
@@ -153,7 +211,6 @@ async function run() {
         const existingData = fs.readFileSync(filePath, "utf8");
         allProfiles = JSON.parse(existingData);
         
-        // Find the highest profile number to continue from
         const existingKeys = Object.keys(allProfiles);
         if (existingKeys.length > 0) {
           const numbers = existingKeys.map(key => {
@@ -162,41 +219,134 @@ async function run() {
           });
           profileCounter = Math.max(...numbers) + 1;
         }
-        
-        console.log(`Loading existing profiles. Starting from Profile ${profileCounter}`);
       } catch (parseError) {
         console.warn("Could not parse existing file, starting fresh");
       }
     }
 
     for (const url of urls) {
-      console.log(`\nProcessing: ${url}`);
+      console.log(`Processing: ${url}`);
       const profiles = await generateAPTProfile(url);
       
-      // Add each profile from this URL
       for (const profile of profiles) {
         const profileKey = `Profile ${profileCounter}`;
         allProfiles[profileKey] = [profile];
         profileCounter++;
       }
       
-      console.log(`Generated ${profiles.length} profile(s) from this URL`);
-
-      // Add delay between requests
+      console.log(`Generated ${profiles.length} profile(s)`);
       await new Promise((resolve) => setTimeout(resolve, 2000));
     }
 
-    // Save all profiles (existing + new)
-    fs.writeFileSync(
-      filePath,
-      JSON.stringify(allProfiles, null, 2)
-    );
-    console.log("\n✓ APT profiles saved to src/data/apt_profiles.json");
-    console.log(`Total profiles in file: ${Object.keys(allProfiles).length}`);
-  } catch (err) {
-    console.error("Error during run:", err);
-    process.exit(1);
+    fs.writeFileSync(filePath, JSON.stringify(allProfiles, null, 2));
+    console.log("✓ APT profiles saved");
+    
+    return { success: true, profileCount: Object.keys(allProfiles).length };
+  } catch (error) {
+    console.error("Error generating threat profiles:", error);
+    throw error;
   }
 }
 
-run();
+// ============================================
+// PROFILE NORMALIZATION
+// ============================================
+
+export function normalizeProfiles(aptProfilesData) {
+  try {
+    // Step 1: Normalize profiles and prepare for merging
+    const normalizedProfiles = [];
+    for (const profileGroup of Object.values(aptProfilesData)) {
+      for (const profile of profileGroup) {
+        const aliases = splitToList(profile.alias || "");
+        const primaryName = aliases[0] || null;
+        const otherAliases = aliases.length > 1 ? aliases.slice(1) : [];
+
+        // Filter out countries from industries
+        const industries = splitToList(profile.Industries || "");
+        const filteredIndustries = filterIndustries(industries);
+
+        const normalizedProfile = {
+          primary_name: primaryName,
+          aliases: otherAliases,
+          "Country of Origin": profile["Country of Origin"] || null,
+          TTPs: splitToList(profile.TTPs || ""),
+          "Last dated attack": profile["Last dated attack"] || null,
+          Industries: filteredIndustries,
+          "Mitre Framework ID/GID": profile["Mitre Framework ID/GID"] || null,
+          CVE: splitToList(profile.CVE || ""),
+          Campaign: profile.Campaign || null,
+          Description: profile.Description || null,
+          Motive: splitToList(profile.Motive || ""),
+          "Targeted country": splitToList(profile["Targeted country"] || ""),
+          "First seen": profile["First seen"] || null,
+          URL: profile.URL || null,
+        };
+
+        normalizedProfiles.push(normalizedProfile);
+      }
+    }
+
+    // Step 2: Merge profiles that share at least one alias or primary name
+    const mergedProfiles = {};
+
+    for (const profile of normalizedProfiles) {
+      const allNames = [profile.primary_name, ...profile.aliases].filter(
+        name => name
+      );
+
+      let mergeKey = null;
+      for (const name of allNames) {
+        if (mergedProfiles[name]) {
+          mergeKey = name;
+          break;
+        }
+      }
+
+      if (mergeKey) {
+        const existing = mergedProfiles[mergeKey];
+        for (const [key, value] of Object.entries(profile)) {
+          if (key === "URL") {
+            // Combine URLs
+            existing[key] = combineURLs(existing[key], value);
+          } else if (Array.isArray(value)) {
+            // Merge and deduplicate arrays
+            existing[key] = [...new Set([...(existing[key] || []), ...value])];
+          } else if (value && value !== existing[key]) {
+            // Use non-null value
+            existing[key] = value;
+          }
+        }
+        // Map all names to the same merged profile
+        for (const name of allNames) {
+          mergedProfiles[name] = existing;
+        }
+      } else {
+        mergedProfiles[profile.primary_name] = profile;
+      }
+    }
+
+    // Step 3: Deduplicate final profiles
+    const finalProfiles = [];
+    const seen = new Set();
+    for (const profile of Object.values(mergedProfiles)) {
+      const pid = profile.primary_name;
+      if (!seen.has(pid)) {
+        finalProfiles.push(profile);
+        seen.add(pid);
+      }
+    }
+
+    // Step 4: Reformat output to match apt_profiles structure
+    const formattedOutput = {};
+    finalProfiles.forEach((profile, index) => {
+      const profileName = profile.primary_name || `Profile ${index + 1}`;
+      formattedOutput[profileName] = [profile];
+    });
+
+    return formattedOutput;
+  } catch (error) {
+    console.error("Error normalizing profiles:", error);
+    throw error;
+  }
+}

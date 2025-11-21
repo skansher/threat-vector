@@ -109,7 +109,9 @@ margin: 0 !important;
   margin: 20px 0; /* Add back vertical margin between items */
 }
 
-
+.row > .col:last-child {
+  margin-bottom: 100px; /* Adjust the value as needed */
+}
 /* --- Responsive Breakpoints (Existing) --- */
 
 @media (max-width: 1200px) {
